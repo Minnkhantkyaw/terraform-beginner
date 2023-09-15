@@ -68,5 +68,7 @@ This is the markup to use checkboxes
 https://gist.github.com/rxaviers/7360908
 
 | Name | Icon | Image |
+
 | *** | *** | *** |
+
 | Smiley | `:smiley:` | :smiley: |
