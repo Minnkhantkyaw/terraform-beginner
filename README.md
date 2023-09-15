@@ -35,4 +35,27 @@ add a image  (this seems to only work, for me, when using github to edit the fil
 
 ![Delicate at night](https://github.com/shanmorton-bootcamp/terraform-beginner-bootcamp-2023/assets/125090413/e10c3715-0083-42a5-aa57-249400aeb16a)
 
-Can use an HTML img to size up or down the image 
+Using a '>' will quote a line of text as below:
+
+>Can use an HTML img to size up or down the image 
+
+## References
+relative references:
+
+ format:  [] ()
+
+- https://www.portland.gov/sites/default/files/code/110-sd-zone_1.pdf
+
+- [PDX houseing codes] (https://www.portland.gov/sites/default/files/code/110-sd-zone_1.pdf)
+
+## Checkboxes
+
+- [x] step 1
+- [ ] step 2
+- [x]  step 3
+- [ ] step 4
+
+
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
