@@ -67,8 +67,11 @@ This is the markup to use checkboxes
 ## Tables and emoji's
 https://gist.github.com/rxaviers/7360908
 
+```
 | Name | Icon | Image |
-
-| *** | *** | *** |
-
+| --- | --- | --- |
+| Smiley | `:smiley:` | :smiley: |
+```
+| Name | Icon | Image |
+| --- | --- | --- |
 | Smiley | `:smiley:` | :smiley: |
