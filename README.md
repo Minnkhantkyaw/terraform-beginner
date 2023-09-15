@@ -16,6 +16,17 @@ I also wonder if b/c I am female and younger, that I'm being ignored.
 
 No, I don't know everything, **but you asked me for help**; listen to what I have to say/suggest.
 Together we'll get this figured out.
+
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
 ```
 Code Block - uses triple back ticks '```' 
 ```
+
+```python
+print("Hello, World!")
+```
+
+add a image
+
+![Delicate Arch](Delicate at night.jpg)
