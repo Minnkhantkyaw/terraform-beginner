@@ -50,12 +50,23 @@ relative references:
 
 ## Checkboxes
 
+This is the markup to use checkboxes
+```
 - [x] step 1
 - [ ] step 2
-- [x]  step 3
+- [x]  step 3 :tada:
+- [ ] step 4
+```
+
+- [x] step 1
+- [ ] step 2
+- [x]  step 3 :tada:
 - [ ] step 4
 
 
-- [x] #739
-- [ ] https://github.com/octo-org/octo-repo/issues/740
-- [ ] Add delight to the experience when all tasks are complete :tada:
+## Tables and emoji's
+https://gist.github.com/rxaviers/7360908
+
+| Name | Icon | Image |
+| *** | *** | *** |
+| Smiley | `:smiley:` | :smiley: |
