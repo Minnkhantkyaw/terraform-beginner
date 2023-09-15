@@ -27,7 +27,12 @@ Code Block - uses triple back ticks '```'
 print("Hello, World!")
 ```
 
-add a image
+add a image  (this seems to only work, for me, when using github to edit the file, not from the gitpod env.)
+
+```! [Delicate at night] (https://github.com/shanmorton-bootcamp/terraform-beginner-bootcamp-2023/assets/125090413/e10c3715-0083-42a5-aa57-249400aeb16a)
+! [] ()
+```
+
 ![Delicate at night](https://github.com/shanmorton-bootcamp/terraform-beginner-bootcamp-2023/assets/125090413/e10c3715-0083-42a5-aa57-249400aeb16a)
 
-
+Can use an HTML img to size up or down the image 
