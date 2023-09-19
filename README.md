@@ -79,7 +79,7 @@ https://gist.github.com/rxaviers/7360908
 
 
 
-## Branching Tagging PR
+## Branching Tagging PR :smiling_imp:
 Now going through the video for Branching and Tagging
 
 I knew you could create, checkout, and move to a new branch in one command,
