@@ -103,3 +103,17 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 - PATCH version when you make backward compatible bug fixes
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
+To creat the tag for a branch the cmd is
+git tag M.m.P   
+Below is the tag I used for my branch   
+
+```
+git tag 0.1.0
+```
+Then push the tags to the branch:
+```
+git push --tags
+```
+
+See the results:
+![Alt text](GitBranching2.png)
