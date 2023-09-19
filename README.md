@@ -75,3 +75,31 @@ https://gist.github.com/rxaviers/7360908
 | Name | Icon | Image |
 | --- | --- | --- |
 | Smiley | `:smiley:` | :smiley: |
+
+
+
+
+## Branching Tagging PR
+Now going through the video for Branching and Tagging
+
+I knew you could create, checkout, and move to a new branch in one command,
+but I like to perform those tasks seprately, as I'm still new and unsure.
+
+Now I am setting the upstream command to push to the branch; something that always has to be done each time you create a new branch.
+
+Check this screenshot:
+
+![Alt text](GitBranching1.png)
+
+I was able to push to the branch and set the upstream branch (branch I'll push to)
+
+
+Pulled from (semver.org) [https://semver.org/]
+
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+- MAJOR version when you make incompatible API changes
+- MINOR version when you add functionality in a backward compatible manner
+- PATCH version when you make backward compatible bug fixes
+Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
