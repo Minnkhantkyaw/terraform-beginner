@@ -225,3 +225,62 @@ NOTE: we have to use 'source' to make the file run. [./bin/isntall_TF_CLI.sh] (b
 - [https://www.gitpod.io/docs/configure/workspaces/tasks]
 
 Using 'before' is for customize the terminal or install global project dependencies.  When you restart your gitpod env it ensures that you have the items/cli you need to do the work.
+
+## Environment Variables
+Setting up EnvVar's to be referenced in our bash scirpts
+Create a new branch and start up your gitpod env.
+My new branch name is 4-projectrootenvvar; a super great name if I say so myself!! 
+I was able to rename my branch.
+
+The standard naming convention is  ALLUPPER_CASE_WITH_UNDERSCORES
+using an '=' sign to set the variable value
+and usually a *string* value.
+
+#### **My Texas Ranger are winning their game right now.**
+
+```bash
+git fetch origin
+git checkout 4-projectrootenvvar
+```
+
+To see the currently set env var's  type  'env' in the bash window
+
+```bash
+env
+```
+Looks like this:
+![Env_cmd](images/Env_cmd.png)
+
+To filter on some text while looking for env var use  grep, like this
+
+```bash
+env | grep GITPOD 
+```
+and you'll see this:
+
+![Env Filter on 'GITPOD'](images/EnvGitPod.png)
+
+To see the value of a particular env var
+
+```bash
+echo $THEIA_WORKSPACE_ROOT
+```
+![Use Echo to print the value of the env var](images/EchoEnvVarValue.png)
+
+To unset an evn var use
+
+```bash
+unset VARIABLE_NAME
+```
+no $ is needed.
+
+
+#### Updating GitPod.yml file
+We'll up date our gitpod.yml file to make sure we are in the correct directory first, then make sure that we move back to our project directory.  This will make sure that we don't download and/or commit files that may not be needed, to our repo.
+
+In our install TF script, we'll set a variable locally 
+named PROJECT_ROOT that is set to /workspace/terraform-beginner-bootcamp-2023
+
+```bash
+PROJECT_ROOT = '/workspace/terraform-beginner-bootcamp-2023'
+```
