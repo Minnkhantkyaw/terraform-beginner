@@ -177,3 +177,51 @@ cat /etc/os-release
 ```
 
 ![Alt text](images/OS_Info.png)
+
+
+
+
+```bash
+git pull origin main
+```  
+to bring in the code form the main branch
+
+Created a new folder bin and a new bash script install_TF_CLI.sh
+to run this script 
+```bash
+source ./bin/install_TF_CLI.sh
+```
+
+make sure to change the file permission to make it executable
+
+```bash
+chmod u+x ./bin/install_TF_CLI.sh
+```
+
+## Installing TerraForm
+
+Updated the instructions for installing the TF CLI.  There are better, more dettailed instruction on the link below:
+
+- (HashiCorp instructions on installing TF for Unbuntu)[https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli]
+
+Created a new script to install the TF CLI.  Needed to make sure that the bash script was done correctly by
+including the #! for the script.  We are using bash shell.
+
+- (Shebang info for bash scripts)[https://en.wikipedia.org/wiki/Shebang_(Unix)]
+
+```
+#!/usr/bin/env bash
+```
+- Allows portability in most distributions.
+- Searches the PATH for the executable.
+
+Needed to ensure that the bash script would run inside the gitpod.yml file
+- (Changing the permissions to execute a bash script) [https://en.wikipedia.org/wiki/Chmod]
+
+NOTE: we have to use 'source' to make the file run. [./bin/isntall_TF_CLI.sh] (bin/install_TF_CLI.sh)
+
+
+(Use 'before' instead of 'init' in the gitpod.yml file) 
+- [https://www.gitpod.io/docs/configure/workspaces/tasks]
+
+Using 'before' is for customize the terminal or install global project dependencies.  When you restart your gitpod env it ensures that you have the items/cli you need to do the work.
