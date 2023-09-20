@@ -138,3 +138,16 @@ Tagged the newest branch with
 git tag 0.1.1
 git push --tags
 ```
+
+### Creating a pull request
+
+Choose the merge option you want; we'll be using the squash and merge
+![Alt text](GitBranching4.png)
+
+confirm the S&M
+
+![Alt text](GitBranching5.png)
+
+and when successful you'll get this mesg and can remove the branch, if you want.
+![Alt text](GitBranching6.png)
+We'll *not* be removing old branches as they are required, to allow a look back for grading.
