@@ -141,6 +141,15 @@ git push --tags
 
 ### Creating a pull request
 
+Back in Github, from the main page of your repo there is a **pull requests** button:
+![Alt text](GitBranching7.png)
+
+Click on the new pull request button. Then you'll choose which branch you want to move into the main branch. Choose from the dropdown and look at the arrow; you'll be putting the feature branch work into the main branch 
+![Alt text](GitBranching8.png) 
+
+Create the pull request:
+![Alt text](GitBranching9.png)
+
 Choose the merge option you want; we'll be using the squash and merge
 ![Alt text](GitBranching4.png)
 
@@ -150,4 +159,12 @@ confirm the S&M
 
 and when successful you'll get this mesg and can remove the branch, if you want.
 ![Alt text](GitBranching6.png)
-We'll *not* be removing old branches as they are required, to allow a look back for grading.
+We'll **not** be removing old branches as they are required, to allow a look back for grading.
+
+Andrew showed us how to close properly the gitpod env's.  I used to left my old one open but
+did find that I ran out of time and had env's left over that needed to removed.
+
+Now that I know how to close these properly...will be making sure that I push all
+my code and close my gitpod env. 
+
+![Alt text](CloseGitPodEnv.png)
