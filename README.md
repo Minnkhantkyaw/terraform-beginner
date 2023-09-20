@@ -132,3 +132,9 @@ This is the visual result:
 
 Then pushed that up to the newest branch: 1-add-semantic-versioning-documentation-to-project
 This merged the work I'd done in 1_semantic_versioning branch to this new one.
+
+Tagged the newest branch with 
+``` 
+git tag 0.1.1
+git push --tags
+```
