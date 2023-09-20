@@ -75,3 +75,66 @@ https://gist.github.com/rxaviers/7360908
 | Name | Icon | Image |
 | --- | --- | --- |
 | Smiley | `:smiley:` | :smiley: |
+
+
+
+
+## Branching Tagging PR :smiling_imp:
+Now going through the video for Branching and Tagging
+
+I knew you could create, checkout, and move to a new branch in one command,
+but I like to perform those tasks seprately, as I'm still new and unsure.
+
+Now I am setting the upstream command to push to the branch; something that always has to be done each time you create a new branch.
+
+Check this screenshot:
+
+![Alt text](GitBranching1.png)
+
+I was able to push to the branch and set the upstream branch (branch I'll push to)
+
+
+Pulled from (semver.org) [https://semver.org/]
+
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+- MAJOR version when you make incompatible API changes
+- MINOR version when you add functionality in a backward compatible manner
+- PATCH version when you make backward compatible bug fixes
+Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+To creat the tag for a branch the cmd is
+git tag M.m.P   
+Below is the tag I used for my branch   
+
+```
+git tag 0.1.0
+```
+Then push the tags to the branch:
+```
+git push --tags
+```
+
+See the results:
+![Alt text](GitBranching2.png)
+
+Following the video, we created a new branch from the issue. 
+
+Then merged the 1_semantic_versioning branch with the newer, longer named branch with
+this command:
+```
+git merge 1_semantic_versioning
+```
+
+This is the visual result:
+![Alt text](GitBranching3.png)
+
+
+Then pushed that up to the newest branch: 1-add-semantic-versioning-documentation-to-project
+This merged the work I'd done in 1_semantic_versioning branch to this new one.
+
+Tagged the newest branch with 
+``` 
+git tag 0.1.1
+git push --tags
+```
