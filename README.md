@@ -168,3 +168,12 @@ Now that I know how to close these properly...will be making sure that I push al
 my code and close my gitpod env. 
 
 ![Alt text](CloseGitPodEnv.png)
+
+
+How to find what verison of a Linux OS I am runnging:
+
+``` 
+cat /etc/os-release
+```
+
+![Alt text](images/OS_Info.png)
