@@ -117,3 +117,18 @@ git push --tags
 
 See the results:
 ![Alt text](GitBranching2.png)
+
+Following the video, we created a new branch from the issue. 
+
+Then merged the 1_semantic_versioning branch with the newer, longer named branch with
+this command:
+```
+git merge 1_semantic_versioning
+```
+
+This is the visual result:
+![Alt text](GitBranching3.png)
+
+
+Then pushed that up to the newest branch: 1-add-semantic-versioning-documentation-to-project
+This merged the work I'd done in 1_semantic_versioning branch to this new one.
