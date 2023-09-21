@@ -318,8 +318,15 @@ You'll see better, filled out info after setting those ENV vars, like this:
 This info is faked for security
 ```json
 {
-    "UserId": "AIDAVUXTXXXX57URK6BXT",
-    "Account": "38813090####",
-    "Arn": "arn:aws:iam::38813090####:user/BootcampAdmin"
+    "UserId": "AIDAVUXTXXXX57URKYYYY",
+    "Account": "@@@@3090####",
+    "Arn": "arn:aws:iam::@@@@3090####:user/BootcampAdmin"
 }
 ```
+Do make sure that you've made this script exectuable with the chmod cmd
+
+```bash
+chmod u+x <FileName.sh>
+```
+
+Also updated the aws install script to remove the .zip file and the /aws directory so that we don't have to answer how to deal with the replacement of the fingerprint file.
