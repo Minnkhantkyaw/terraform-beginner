@@ -284,3 +284,49 @@ named PROJECT_ROOT that is set to /workspace/terraform-beginner-bootcamp-2023
 ```bash
 PROJECT_ROOT = '/workspace/terraform-beginner-bootcamp-2023'
 ```
+
+## Installing the AWS CLI
+
+NOTE:  make sure that you use the fill name of your bash script in your .yml file. :unamused:  Don't forget the .sh 
+
+(AWS's instructions on installing the CLI)[https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html]
+
+We'll install the AWS CLI using a bash script. We are installing on a linux machine using the X86 (not ARM).
+
+At this point,we've not set any AWS creditials.  To show that is hasn't been done yet, run:
+
+```bash
+aws sts get-caller-identity
+```
+This is the response you should see:
+
+![Alt text](images/sts_getcaller.png)
+
+We'll set these values using ENV VARs (gp env)
+
+(How to set the AWS CLI Env Vars)[https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html]
+
+These are the cmds I ran:
+![Alt text](/images/SetAWSEnvs.png)
+
+And run the sts cmd again to see (truncated info):
+
+![Alt text](/images/SetCreds.png)
+
+You'll see better, filled out info after setting those ENV vars, like this:
+
+This info is faked for security
+```json
+{
+    "UserId": "AIDAVUXTXXXX57URKYYYY",
+    "Account": "@@@@3090####",
+    "Arn": "arn:aws:iam::@@@@3090####:user/BootcampAdmin"
+}
+```
+Do make sure that you've made this script exectuable with the chmod cmd
+
+```bash
+chmod u+x <FileName.sh>
+```
+
+Also updated the aws install script to remove the .zip file and the /aws directory so that we don't have to answer how to deal with the replacement of the fingerprint file.
