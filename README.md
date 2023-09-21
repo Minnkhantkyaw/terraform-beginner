@@ -313,7 +313,8 @@ And run the sts cmd again to see (truncated info):
 
 ![Alt text](/images/SetCreds.png)
 
-You'll see better, filled out info after setting those ENV vars.
+You'll see better, filled out info after setting those ENV vars, like this:
+
 This info is faked for security
 ```json
 {
