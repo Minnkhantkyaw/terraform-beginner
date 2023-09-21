@@ -305,3 +305,20 @@ This is the response you should see:
 We'll set these values using ENV VARs (gp env)
 
 (How to set the AWS CLI Env Vars)[https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html]
+
+These are the cmds I ran:
+![Alt text](/images/SetAWSEnvs.png)
+
+And run the sts cmd again to see (truncated info):
+
+![Alt text](/images/SetCreds.png)
+
+You'll see better, filled out info after setting those ENV vars.
+This info is faked for security
+```json
+{
+    "UserId": "AIDAVUXTXXXX57URK6BXT",
+    "Account": "38813090####",
+    "Arn": "arn:aws:iam::38813090####:user/BootcampAdmin"
+}
+```
