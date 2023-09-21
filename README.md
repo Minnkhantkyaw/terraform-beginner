@@ -330,3 +330,72 @@ chmod u+x <FileName.sh>
 ```
 
 Also updated the aws install script to remove the .zip file and the /aws directory so that we don't have to answer how to deal with the replacement of the fingerprint file.
+
+
+## Terraform and creating a random name string to be used for an AWS Bucket.
+
+The first website we'll need to be familiar with for this part of the bootcamp is [Terraform.io](https://www.terraform.io/)
+
+
+This will have most if not all the info we'll need to work with TF.
+
+We'll be using a provider for AWS as that's the cloud platform we'll be using.  You can find the registry here: [Terraform Registry](https://registry.terraform.io/browse/providers)
+
+Terraform also provides templates called moduals.  So you don't have to build some things your self, you can use moduals to do some of the work. [Terraform Modulas](https://registry.terraform.io/browse/modules)
+
+
+#### Using the TF random provier and creating a random name-string
+
+We'll use the HashiCorp provider for Random, found here:
+[Random Provider by HashiCorp](https://registry.terraform.io/providers/hashicorp/random/latest)
+
+Keep in mind that AWS doesn't like you to use special characters in bucket names; follow the rules for making bucket names.
+
+We'll need to get the output of the random generated bucket name.
+This is where I found an example of how to get the output from a created resource. [Example of an Output in TF](https://developer.hashicorp.com/terraform/tutorials/configuration-language/outputs)
+
+
+After setting up our main.tf file to use the random provider, and setting up the randomizer to give us a random string,
+and a way to output that info, we'll run a initial on TF
+
+```terraform
+terraform init
+```
+
+I always like to run the formatter to make sure my files look good:
+```terraform
+terraform fmt
+```
+The next step is to run a plan command. This will generally let us know if there is an issue with our TF files.  It doesn't catch everything but you can't proceed unless 'plan' is happy.
+```terraform
+terraform plan
+```
+The output will give you information on what needs to be updated, or changed, or any issues you may have.
+
+At this time we have no issues so we can apply this plan and see what we get as a result.  NOTE: you can automate the apply approval with the flag   '--auto-approve'.
+
+```terraform
+terraform apply --auto-approve
+```
+
+When it all is correct you'll see a happy result, like the one below:
+
+![Terraform Apply](images/TFapply.png)
+
+To see the outputs from your TF apply use this command:
+
+```terraform
+terraform output
+```
+
+In this case, we see the name of the bucket that will be created, from the last screen shot. :smile:
+
+There are several files that TF produces that should not be pushed up to GitHub.  
+Anything in the .terraform folder and never the TF.ftstate files or back up.
+If you don't have those configured in your .gitignore you could be pushing sensative data that could be used against you or to run up your bill, or create/destroy resources that you aren't aware of.  Do be careful  Can look online for templates to use for .gitignore files.  I found this one.  This may be the very same one that this project copied from template. :shrug:
+
+[TF .gitignore file templates](https://github.com/github/gitignore/blob/main/Terraform.gitignore)
+
+Conversly, one of the files you SHOULD commit to github is the ./terraform.lock.hcl file. 
+Read more here: [TF state lock file](https://developer.hashicorp.com/terraform/language/files/dependency-lock)
+
