@@ -284,3 +284,24 @@ named PROJECT_ROOT that is set to /workspace/terraform-beginner-bootcamp-2023
 ```bash
 PROJECT_ROOT = '/workspace/terraform-beginner-bootcamp-2023'
 ```
+
+## Installing the AWS CLI
+
+NOTE:  make sure that you use the fill name of your bash script in your .yml file. :unamused:  Don't forget the .sh 
+
+(AWS's instructions on installing the CLI)[https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html]
+
+We'll install the AWS CLI using a bash script. We are installing on a linux machine using the X86 (not ARM).
+
+At this point,we've not set any AWS creditials.  To show that is hasn't been done yet, run:
+
+```bash
+aws sts get-caller-identity
+```
+This is the response you should see:
+
+![Alt text](images/sts_getcaller.png)
+
+We'll set these values using ENV VARs (gp env)
+
+(How to set the AWS CLI Env Vars)[https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html]
