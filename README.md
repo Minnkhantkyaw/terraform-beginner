@@ -399,3 +399,107 @@ If you don't have those configured in your .gitignore you could be pushing sensa
 Conversly, one of the files you SHOULD commit to github is the ./terraform.lock.hcl file. 
 Read more here: [TF state lock file](https://developer.hashicorp.com/terraform/language/files/dependency-lock)
 
+## Creating the S3 Bucket using TF
+
+I am a little behind in my videos.
+I have been obsessed with my Texas Rangers winning their games and moving to the post season. :smile:
+
+![The Texas Rangers are at the top of the AL West](images/TXRangersStandings0924.png)
+
+I have my AWS credentials in my set up, so when I run 
+
+```bash
+aws sts get-caller-identity
+```
+they are shown on the screen.
+
+You can also check your list of S3 buckets with this command
+```bash
+aws s3 ls
+```
+If you have any buckets they'll be listed.  If none, I think the prompt just returns.
+Hey AWS!  You could return a mesg like "You have no buckets created in your account." 
+
+We'll take a look at the AWS TF provider here:
+[AWS Terraform provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+
+Here is the documentation for AWS S3, or at least a starting point:
+[AWS S3 info](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
+
+and here is the naming restrictions for S3 Buckets:
+[Naming your S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
+
+Want to comment out multiple lines at one time, like Andrew does?
+Way to Comment Out Multiple Lines in Visual Studio Code
+To comment out multiple lines in Visual Studio Code, you can use the shortcut Ctrl + / (Windows/Linux) or Command + / (Mac). Select the lines you want to comment on, then press the shortcut to comment on them. Press the shortcut again to uncomment the lines.
+
+```
+highlight multiple lines and press
+control + / to put #'s in front of them all.
+```
+[Work smarter not harder](https://www.simplilearn.com/tutorials/python-tutorial/what-is-a-multiline-comment#:~:text=Way%20to%20Comment%20Out%20Multiple,again%20to%20uncomment%20the%20lines.)
+
+Since we know that our past TF code is working, go ahead the run the init and apply with auto approve at
+this time
+
+```bash
+terraform init
+terraform apply --auto-approve
+```
+We'll see the random name being output.
+
+We'll paste the provider info we found from the TF AWS Provider page
+[](https://registry.terraform.io/providers/hashicorp/aws/latest)
+
+It could be an exam question that you can't have two of the same providers in your .tf file.
+You'll get an error;  It could look something like this:
+![Too Many AWS Providers](images/TooManyProviders.png)
+
+We you try to run TF plan again, you'll get a different error:
+
+![Provider needs to by updated]](images/UpdateProvider.png)
+
+Just run TF init again:
+
+```bash
+terraform init
+terraform plan
+terraform apply --auto-approve
+```
+
+You'll see that the provider has been updated/added and you'll get green on your init command.
+![Run TF init to update the provider info](images/TFinitUpdate.png)
+
+Yep, we run into yet another error:  What could it be?
+
+![Bucket naming error](images/BucketNamedWrong.png)
+
+This will also show that your code can be "correct" and not have any errors, but still won't
+produce the result you want.
+
+I looked at the random documentation to see what I needed to change to make sure that my bucket name was all lower
+case letter and numbers.  I kept running the plan but kept seeing the wrong case in my generated bucket name.
+I took the chance and went ahead and ran the apply... It did give me the correct case and I'll go look
+at my AWS account to see if it did get made...
+
+It did!
+
+![Bucket Created](images/NewBucketwRandomName.png)
+
+An issue that may come up is that Bucket names need to start and end with a letter. I may look into 
+adding a prefix and suffix to my bucket names, but I'm sleep right now.
+
+Now to remove that bucket, run the destory command:
+
+```bash
+terraform destroy 
+```
+or 
+```bash
+terraform destroy --auto-approve
+```
+
+![Alt text](images/BucketDestroy.png)
+
+Now my bucket will be gone; it'll take a little bit of time for the name to disappear from the list b/c
+it's replicated to a few different places; it won't be gone immedately.
