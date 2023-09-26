@@ -550,9 +550,6 @@ I was able to open a new page and get to this:
 
 ![Alt text](images/TFCloudToken1.png.png)
 
-
-I may have fumbled my way throught this:
-
 ![Alt text](images/TFCloudCredComplete.png)
 
 Then I ran TF init again:
@@ -562,8 +559,22 @@ to get GREEN from my command:
 ![Alt text](images/TFCloudInitComplete.png)
 
 and run TF Apply:
-
 ![Alt text](images/TFCloudApply.png)
 
 To get an error I can work with!! Yea!!!!
 
+The Rangers game started so I got distracted.  I am trying to work through my errors and look up 
+what others are doing/have done, in Discord.
+
+I may have fumbled my way through this.  I created a TF Cloud Env Var set and used this page to find what I needed:
+[Terraform Cloud Token ](https://app.terraform.io/app/settings/tokens?source=terraform-login)
+
+I created a variable sets in TF Cloud with the same info of my AWS ENVs.
+Re-ran the TF init, plan and apply cmds and I am not getting any glaring errors.
+
+When I look at my TF Cloud...
+![Alt text](images/TFCloudRunSuccess.png)
+
+It seems happy and green.  I don't know if I should run a tf destroy to see what would happen...
+
+I'm going to commit my work for now (#14).
