@@ -430,8 +430,8 @@ and here is the naming restrictions for S3 Buckets:
 [Naming your S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
 
 Want to comment out multiple lines at one time, like Andrew does?
-Way to Comment Out Multiple Lines in Visual Studio Code
-To comment out multiple lines in Visual Studio Code, you can use the shortcut Ctrl + / (Windows/Linux) or Command + / (Mac). Select the lines you want to comment on, then press the shortcut to comment on them. Press the shortcut again to uncomment the lines.
+> Way to Comment Out Multiple Lines in Visual Studio Code
+> To comment out multiple lines in Visual Studio Code, you can use the shortcut Ctrl + / (Windows/Linux) or Command + / > (Mac). Select the lines you want to comment on, then press the shortcut to comment on them. Press the shortcut again > > to uncomment the lines.
 
 ```
 highlight multiple lines and press
@@ -503,3 +503,78 @@ terraform destroy --auto-approve
 
 Now my bucket will be gone; it'll take a little bit of time for the name to disappear from the list b/c
 it's replicated to a few different places; it won't be gone immedately.
+
+## Working with Terraform Cloud
+On today's episode of Terraform Beginner BootCamp with Andrew Brown...
+
+We'll get started with Terraform Cloud, get logged in and create a project/workspace for our bootcamp work.
+
+Since the last video, we got TF to create a bucket with a random name.  We did a destroy which cleared out the resources we built.  We are re-creating them using these commands: (Do make sure you spell the cmds correctly!!!  :smile:)
+
+```bash
+terraform init
+terraform fmt
+terraform plan
+terraform apply --auto-approve
+```
+
+![Terraform cmds](images/TF_Cmds.png)
+
+### Migrate your TF State file off of your local machine
+
+In TF Cloud, we gotten logged in and made the project space and the workspace. 
+
+###### (I'm not entirely clear on how each 'space' is significant.  I'll have to go back and watch the video again as I didn't document it the first time through. I noticed that an issue/branch wasn't created in the video and I wanted to do that before continuing, so I started the video again after completeing those steps.)
+
+After createing the workspace for our TerraTowns TerraHouse, we get a block of code to use and instructions.
+![Cmds for getting our state into TF Cloud](images/TFCloudForTTTH.png)
+
+```bash
+terraform init
+```
+
+Uh oh!  Ran into an error!  We need to auth to TF Cloud!  See the error for help!
+![TF Cloud Error when running TF init again](TFCloudErrorLogin.png)
+
+```bash
+terraform login
+```
+![Alt text](images/TFCloudLogin.png)
+
+I said "yes" and pressed the P - Print option to get here:
+
+![Alt text](images/TFCloudLicense-P.png.png)
+
+
+I was able to open a new page and get to this:
+
+![Alt text](images/TFCloudToken1.png.png)
+
+![Alt text](images/TFCloudCredComplete.png)
+
+Then I ran TF init again:
+![Alt text](images/TFCloudInitAgain.png)
+
+to get GREEN from my command:
+![Alt text](images/TFCloudInitComplete.png)
+
+and run TF Apply:
+![Alt text](images/TFCloudApply.png)
+
+To get an error I can work with!! Yea!!!!
+
+The Rangers game started so I got distracted.  I am trying to work through my errors and look up 
+what others are doing/have done, in Discord.
+
+I may have fumbled my way through this.  I created a TF Cloud Env Var set and used this page to find what I needed:
+[Terraform Cloud Token ](https://app.terraform.io/app/settings/tokens?source=terraform-login)
+
+I created a variable sets in TF Cloud with the same info of my AWS ENVs.
+Re-ran the TF init, plan and apply cmds and I am not getting any glaring errors.
+
+When I look at my TF Cloud...
+![Alt text](images/TFCloudRunSuccess.png)
+
+It seems happy and green.  I don't know if I should run a tf destroy to see what would happen...
+
+I'm going to commit my work for now (#14).

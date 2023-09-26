@@ -2,6 +2,15 @@
 #Second Change
 
 terraform {
+  
+  cloud {
+    organization = "TerraTowns"
+
+    workspaces {
+      name = "TerraHouse"
+    }
+  
+}
   required_providers {
     random = {
       source  = "hashicorp/random"
@@ -15,7 +24,7 @@ terraform {
 }
 
 provider "aws" {
-  # Configuration options
+
 }
 
 provider "random" {
