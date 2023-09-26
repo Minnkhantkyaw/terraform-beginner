@@ -89,7 +89,7 @@ Now I am setting the upstream command to push to the branch; something that alwa
 
 Check this screenshot:
 
-![Alt text](GitBranching1.png)
+![Alt text](images/GitBranching1.png)
 
 I was able to push to the branch and set the upstream branch (branch I'll push to)
 
@@ -116,7 +116,7 @@ git push --tags
 ```
 
 See the results:
-![Alt text](GitBranching2.png)
+![Alt text](images/GitBranching2.png)
 
 Following the video, we created a new branch from the issue. 
 
@@ -127,7 +127,7 @@ git merge 1_semantic_versioning
 ```
 
 This is the visual result:
-![Alt text](GitBranching3.png)
+![Alt text](images/GitBranching3.png)
 
 
 Then pushed that up to the newest branch: 1-add-semantic-versioning-documentation-to-project
@@ -142,23 +142,23 @@ git push --tags
 ### Creating a pull request
 
 Back in Github, from the main page of your repo there is a **pull requests** button:
-![Alt text](GitBranching7.png)
+![Alt text](images/GitBranching7.png)
 
 Click on the new pull request button. Then you'll choose which branch you want to move into the main branch. Choose from the dropdown and look at the arrow; you'll be putting the feature branch work into the main branch 
-![Alt text](GitBranching8.png) 
+![Alt text](images/GitBranching8.png) 
 
 Create the pull request:
-![Alt text](GitBranching9.png)
+![Alt text](images/GitBranching9.png)
 
 Choose the merge option you want; we'll be using the squash and merge
-![Alt text](GitBranching4.png)
+![Alt text](images/GitBranching4.png)
 
 confirm the S&M
 
-![Alt text](GitBranching5.png)
+![Alt text](images/GitBranching5.png)
 
 and when successful you'll get this mesg and can remove the branch, if you want.
-![Alt text](GitBranching6.png)
+![Alt text](images/GitBranching6.png)
 We'll **not** be removing old branches as they are required, to allow a look back for grading.
 
 Andrew showed us how to close properly the gitpod env's.  I used to left my old one open but
@@ -167,7 +167,7 @@ did find that I ran out of time and had env's left over that needed to removed.
 Now that I know how to close these properly...will be making sure that I push all
 my code and close my gitpod env. 
 
-![Alt text](CloseGitPodEnv.png)
+![Alt text](images/CloseGitPodEnv.png)
 
 
 How to find what verison of a Linux OS I am runnging:
