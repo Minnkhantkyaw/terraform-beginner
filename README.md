@@ -611,3 +611,55 @@ My TF cmds worked and the TF Cloud page says it was run 2 mins ago and is GREEN!
 ![Alt text](images/TFCloudNewCredsRun.png)
 
 This task is now automated!
+
+
+### Setting up an alias for Terraform 
+
+Walking through the video to set up an alias for the Terraform command.  We'll use 'tf' as a shortcut for terraform.
+
+I've made my branch and I've got my gitpod env open.
+
+I for some reason am having trouble opening files like ./bash_profile in the wrong directory, creating new
+files that I don't want.  So... I went looking around in a different bash shell window to find it, and MAKE SURE that
+I was doing the correct work.
+
+###### (ls ~/.bash_profile) I know that `~` means home directory. I think I wasn't putting the correct characters in the right place. I had to re-learn this and find a way for my brain to keep that info.
+
+For my own notes the .bash_profile file is in /home/gitpod/.bash_profile.  I like to use vi, and I'll open the file with that.
+![Open .bash_profile with vi command](images/OpenBashProfilew_vicmd.png)
+
+That is done and we see the contents of the .bash_profile
+![Open the .bash_profile with vi](images/OpenBashProfile.png)
+
+Now to make my edits.
+I've entered the alias for tf but I will also see if I can add another for ls.
+I like to see ALL the files in a particular listed way with 'ls -al'  If I get too annoyed with it...
+I can change it.
+
+[How to make an alias in .bash_profile](https://www.shell-tips.com/bash/alias/#gsc.tab=0)
+
+Used 'cat to see the file w/o opening it.
+```bash
+cat /home/gitpod/.bash_profile
+```
+![Alt text](images/catBashProfile.png)
+
+Don't go bash-ing any cats.
+
+Now the aliases won't work unless you reload .bash_profile, with this command:
+
+```bash
+source /home/gitpod/.bash_profile
+```
+![Run source cmd to reload profile](images/SourceBashProfile.png)
+
+Success!  When you type 'tf' in your shell, you'll get the main menu for terraform.
+
+![Typing 'tf' to for 'terraform'](images/TFAliasWorks.png)
+
+#### Bash script to load up our .bash_profile so we can have those alises each time
+
+Created a new bash script to add the alias to the ~./bash_profile and reload it: set_tf_alias.sh
+Mine is adding these alias each time. I have that problem to correct.
+
+Now to push my changes up, create the pull request, merge, and tag.  :smile:
