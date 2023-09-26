@@ -578,3 +578,36 @@ When I look at my TF Cloud...
 It seems happy and green.  I don't know if I should run a tf destroy to see what would happen...
 
 I'm going to commit my work for now (#14).
+
+### Terraform Cloud Token Script
+
+I'm following along with the video to automate with a bash script setting up the TF Cloud token so I don't have to go through the process each time.  
+
+I've created a new token in TF Cloud that will last a little longer than the 30 days suggested.  I've got the gitpod env variable created.
+
+```bash
+gp env TERRAFORM_CLOUD_TOKEN='ABCEFEGHIJKLMNOPQRSTUVWXYZFAKEINFO'
+```
+I've made the new bash script executable:
+
+```bash
+chmod u+x generate_tfrc_creds.sh
+```
+and will try to run this file now. :metal:
+
+![Alt text](images/TFCloudCredFileCreated.png)
+
+### Success!!!
+
+Now to update your gitpod.yml file to include this script
+
+```yml
+  - name: terraform
+    before: |
+      source ./bin/install_TF_CLI.sh
+      source ./bin/generate_tfrc_credentials.sh
+```
+My TF cmds worked and the TF Cloud page says it was run 2 mins ago and is GREEN!
+![Alt text](images/TFCloudNewCredsRun.png)
+
+This task is now automated!
