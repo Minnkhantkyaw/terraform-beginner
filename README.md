@@ -341,7 +341,7 @@ This will have most if not all the info we'll need to work with TF.
 
 We'll be using a provider for AWS as that's the cloud platform we'll be using.  You can find the registry here: [Terraform Registry](https://registry.terraform.io/browse/providers)
 
-Terraform also provides templates called moduals.  So you don't have to build some things your self, you can use moduals to do some of the work. [Terraform Modulas](https://registry.terraform.io/browse/modules)
+Terraform also provides templates called moduals.  So you don't have to build some things your self, youh hu can use moduals to do some of the work. [Terraform Modulas](https://registry.terraform.io/browse/modules)
 
 
 #### Using the TF random provier and creating a random name-string
@@ -534,7 +534,7 @@ terraform init
 ```
 
 Uh oh!  Ran into an error!  We need to auth to TF Cloud!  See the error for help!
-![TF Cloud Error when running TF init again](TFCloudErrorLogin.png)
+![TF Cloud Error when running TF init again](images/TFCloudErrorLogin.png)
 
 ```bash
 terraform login
@@ -543,12 +543,12 @@ terraform login
 
 I said "yes" and pressed the P - Print option to get here:
 
-![Alt text](images/TFCloudLicense-P.png.png)
+![Alt text](images/TFCloudLicense-P.png)
 
 
 I was able to open a new page and get to this:
 
-![Alt text](images/TFCloudToken1.png.png)
+![Alt text](images/TFCloudToken1.png)
 
 ![Alt text](images/TFCloudCredComplete.png)
 
