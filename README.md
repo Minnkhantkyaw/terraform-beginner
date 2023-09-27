@@ -1,22 +1,36 @@
 # Terraform Beginner Bootcamp 2023
 
+## Table of Contents- [Terraform Beginner Bootcamp 2023](#terraform-beginner-bootcamp-2023)
+  * [Table of Contents](#table-of-contents)
+  * [GitHub Markdown for README](#github-markdown-for-readme)
+    + [References](#references)
+    + [Checkboxes](#checkboxes)
+    + [Tables and emoji's](#tables-and-emoji-s)
+  * [Branching Tagging PR :smiling_imp:](#branching-tagging-pr--smiling-imp-)
+    + [Creating a pull request](#creating-a-pull-request)
+  * [Installing TerraForm](#installing-terraform)
+  * [Environment Variables](#environment-variables)
+      - [**My Texas Ranger are winning their game right now.**](#--my-texas-ranger-are-winning-their-game-right-now--)
+      - [Updating GitPod.yml file](#updating-gitpodyml-file)
+  * [Installing the AWS CLI](#installing-the-aws-cli)
+  * [Terraform and creating a random name string to be used for an AWS Bucket.](#terraform-and-creating-a-random-name-string-to-be-used-for-an-aws-bucket)
+      - [Using the TF random provier and creating a random name-string](#using-the-tf-random-provier-and-creating-a-random-name-string)
+  * [Creating the S3 Bucket using TF](#creating-the-s3-bucket-using-tf)
+  * [Working with Terraform Cloud](#working-with-terraform-cloud)
+    + [Migrate your TF State file off of your local machine](#migrate-your-tf-state-file-off-of-your-local-machine)
+          + [(I'm not entirely clear on how each 'space' is significant.  I'll have to go back and watch the video again as I didn't document it the first time through. I noticed that an issue/branch wasn't created in the video and I wanted to do that before continuing, so I started the video again after completeing those steps.)](#-i-m-not-entirely-clear-on-how-each--space--is-significant--i-ll-have-to-go-back-and-watch-the-video-again-as-i-didn-t-document-it-the-first-time-through-i-noticed-that-an-issue-branch-wasn-t-created-in-the-video-and-i-wanted-to-do-that-before-continuing--so-i-started-the-video-again-after-completeing-those-steps-)
+    + [Terraform Cloud Token Script](#terraform-cloud-token-script)
+    + [Success!!!](#success---)
+    + [Setting up an alias for Terraform](#setting-up-an-alias-for-terraform)
+          + [(ls ~/.bash_profile) I know that `~` means home directory. I think I wasn't putting the correct characters in the right place. I had to re-learn this and find a way for my brain to keep that info.](#-ls---bash-profile--i-know-that-----means-home-directory-i-think-i-wasn-t-putting-the-correct-characters-in-the-right-place-i-had-to-re-learn-this-and-find-a-way-for-my-brain-to-keep-that-info)
+      - [Bash script to load up our .bash_profile so we can have those alises each time](#bash-script-to-load-up-our-bash-profile-so-we-can-have-those-alises-each-time)
 
-## Helping Friends 09/14/23
-I kinda like being the one among my friends, who have signed up for the bootcamp, to ask me for 
-assistance.  What I'm finding is that they don't listen to me, and not following my directions.
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-Both are older gentlemen, and well versed in their own areas of IT. Having participated
-in the previous bootcamp, getting set up was easy for me, for this bootcamp.  I watched the new 
-videos and followed the directions. One friend wanted to use a local development enviromnent.
-That's great.  But I won't be assisting him with getting it fixed or issues with his project
-if it is cause of not matching the teaching environment.
+ 
 
-I also wonder if b/c I am female and younger, that I'm being ignored.
-*This is one reason why it's so hard for ladies in IT.* 
 
-No, I don't know everything, **but you asked me for help**; listen to what I have to say/suggest.
-Together we'll get this figured out.
-
+## GitHub Markdown for README
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 ```
@@ -39,7 +53,7 @@ Using a '>' will quote a line of text as below:
 
 >Can use an HTML img to size up or down the image 
 
-## References
+### References
 relative references:
 
  format:  [] ()
@@ -48,7 +62,7 @@ relative references:
 
 - [PDX houseing codes] (https://www.portland.gov/sites/default/files/code/110-sd-zone_1.pdf)
 
-## Checkboxes
+### Checkboxes
 
 This is the markup to use checkboxes
 ```
@@ -64,7 +78,7 @@ This is the markup to use checkboxes
 - [ ] step 4
 
 
-## Tables and emoji's
+### Tables and emoji's
 https://gist.github.com/rxaviers/7360908
 
 ```
