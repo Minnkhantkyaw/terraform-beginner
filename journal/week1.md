@@ -9,3 +9,9 @@ This website will help breakdown our big file and make a TOC easily for us:
 ###### My Texas Rangers are dropping fly balls!!! :angry:
 
 This will be a major revision and our tag will be 1.0.0, as we are working through week1 videos.
+
+We'll put all the work done in the Readme file in to Week0.md and then start on this next week's documentation in Week1.md (this file).
+
+Made a TOC for the week0 journal and trying to find out why my picutes haven't shown up just yet. 
+
+Then will continue to document this work.
