@@ -1,13 +1,12 @@
 # Terraform Beginner Bootcamp 2023 - Week 0 
 
 
-## Table of Contents- [Terraform Beginner Bootcamp 2023](#terraform-beginner-bootcamp-2023)
-  * [Table of Contents](#table-of-contents)
+## Table of Contents
   * [GitHub Markdown for README](#github-markdown-for-readme)
     + [References](#references)
     + [Checkboxes](#checkboxes)
     + [Tables and emoji's](#tables-and-emoji-s)
-  * [Branching Tagging PR :smiling_imp:](#branching-tagging-pr--smiling-imp-)
+  * [Branching Tagging PR](#branching-tagging-pr)
     + [Creating a pull request](#creating-a-pull-request)
   * [Installing TerraForm](#installing-terraform)
   * [Environment Variables](#environment-variables)
@@ -19,13 +18,10 @@
   * [Creating the S3 Bucket using TF](#creating-the-s3-bucket-using-tf)
   * [Working with Terraform Cloud](#working-with-terraform-cloud)
     + [Migrate your TF State file off of your local machine](#migrate-your-tf-state-file-off-of-your-local-machine)
-          + [(I'm not entirely clear on how each 'space' is significant.  I'll have to go back and watch the video again as I didn't document it the first time through. I noticed that an issue/branch wasn't created in the video and I wanted to do that before continuing, so I started the video again after completeing those steps.)](#-i-m-not-entirely-clear-on-how-each--space--is-significant--i-ll-have-to-go-back-and-watch-the-video-again-as-i-didn-t-document-it-the-first-time-through-i-noticed-that-an-issue-branch-wasn-t-created-in-the-video-and-i-wanted-to-do-that-before-continuing--so-i-started-the-video-again-after-completeing-those-steps-)
     + [Terraform Cloud Token Script](#terraform-cloud-token-script)
     + [Success!!!](#success---)
     + [Setting up an alias for Terraform](#setting-up-an-alias-for-terraform)
-          + [(ls ~/.bash_profile) I know that `~` means home directory. I think I wasn't putting the correct characters in the right place. I had to re-learn this and find a way for my brain to keep that info.](#-ls---bash-profile--i-know-that-----means-home-directory-i-think-i-wasn-t-putting-the-correct-characters-in-the-right-place-i-had-to-re-learn-this-and-find-a-way-for-my-brain-to-keep-that-info)
       - [Bash script to load up our .bash_profile so we can have those alises each time](#bash-script-to-load-up-our-bash-profile-so-we-can-have-those-alises-each-time)
-
 
 ## GitHub Markdown for README
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
