@@ -1,6 +1,5 @@
 # Terraform Beginner Bootcamp 2023 - Week 0 
 
-
 ## Table of Contents
   * [GitHub Markdown for README](#github-markdown-for-readme)
     + [References](#references)
