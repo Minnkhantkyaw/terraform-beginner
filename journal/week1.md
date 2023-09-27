@@ -21,3 +21,25 @@ Made a TOC for the week0 journal and trying to find out why my picutes haven't s
 Create a journal folder and added/created new weekX.md files for future documentation.
 
 Then will continue to document this work.
+
+### Fixing my images in my journal files
+They were not showing up correctly; needed to find out why and make that change.
+The images were not pathed correctly after the move into the journal folder.
+They started with "image/Filename.png" and needed to be "/images/Filename.png"
+Got that fixed.  Now to need to stash my changes and move those into a new branch and 
+commit.
+
+Need to rewatch the end of one of the videos to get the git stash cmds.
+Had to go back to the video for 'Terraform Cloud and Terraform Login'
+as that video didn't create a branch to do the work before doing the work.
+
+```bash
+git pull
+git fetch
+git add .
+git stash save
+git checkout 24-fixed-my-image-path-for-my-journal-files
+git stash apply
+```
+Then inside gitpod go ahead an commit the changes and proceed as you would if you'd created
+the branch before making the changes.

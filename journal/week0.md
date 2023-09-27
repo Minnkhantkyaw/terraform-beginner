@@ -52,7 +52,7 @@ relative references:
 
 - https://www.portland.gov/sites/default/files/code/110-sd-zone_1.pdf
 
-- [PDX houseing codes] (https://www.portland.gov/sites/default/files/code/110-sd-zone_1.pdf)
+- [PDX houseing codes](https://www.portland.gov/sites/default/files/code/110-sd-zone_1.pdf)
 
 ### Checkboxes
 
@@ -95,9 +95,10 @@ Now I am setting the upstream command to push to the branch; something that alwa
 
 Check this screenshot:
 
-![Alt text](images/GitBranching1.png)
+![Set the upstream](/images/GitBranching1.png)
 
-I was able to push to the branch and set the upstream branch (branch I'll push to)
+
+I was able to push to the branch and set the upstream branch (branch I'll push to).
 
 
 Pulled from (semver.org) [https://semver.org/]
@@ -122,7 +123,7 @@ git push --tags
 ```
 
 See the results:
-![Alt text](images/GitBranching2.png)
+![Alt text](/images/GitBranching2.png)
 
 Following the video, we created a new branch from the issue. 
 
@@ -133,7 +134,7 @@ git merge 1_semantic_versioning
 ```
 
 This is the visual result:
-![Alt text](images/GitBranching3.png)
+![Alt text](/images/GitBranching3.png)
 
 
 Then pushed that up to the newest branch: 1-add-semantic-versioning-documentation-to-project
@@ -148,23 +149,23 @@ git push --tags
 ### Creating a pull request
 
 Back in Github, from the main page of your repo there is a **pull requests** button:
-![Alt text](images/GitBranching7.png)
+![Alt text](/images/GitBranching7.png)
 
 Click on the new pull request button. Then you'll choose which branch you want to move into the main branch. Choose from the dropdown and look at the arrow; you'll be putting the feature branch work into the main branch 
-![Alt text](images/GitBranching8.png) 
+![Alt text](/images/GitBranching8.png) 
 
 Create the pull request:
-![Alt text](images/GitBranching9.png)
+![Alt text](/images/GitBranching9.png)
 
 Choose the merge option you want; we'll be using the squash and merge
-![Alt text](images/GitBranching4.png)
+![Alt text](/images/GitBranching4.png)
 
 confirm the S&M
 
-![Alt text](images/GitBranching5.png)
+![Alt text](/images/GitBranching5.png)
 
 and when successful you'll get this mesg and can remove the branch, if you want.
-![Alt text](images/GitBranching6.png)
+![Alt text](/images/GitBranching6.png)
 We'll **not** be removing old branches as they are required, to allow a look back for grading.
 
 Andrew showed us how to close properly the gitpod env's.  I used to left my old one open but
@@ -173,7 +174,7 @@ did find that I ran out of time and had env's left over that needed to removed.
 Now that I know how to close these properly...will be making sure that I push all
 my code and close my gitpod env. 
 
-![Alt text](images/CloseGitPodEnv.png)
+![Alt text](/images/CloseGitPodEnv.png)
 
 
 How to find what verison of a Linux OS I am runnging:
@@ -182,7 +183,7 @@ How to find what verison of a Linux OS I am runnging:
 cat /etc/os-release
 ```
 
-![Alt text](images/OS_Info.png)
+![Alt text](/images/OS_Info.png)
 
 
 
@@ -255,7 +256,7 @@ To see the currently set env var's  type  'env' in the bash window
 env
 ```
 Looks like this:
-![Env_cmd](images/Env_cmd.png)
+![Env_cmd](/images/Env_cmd.png)
 
 To filter on some text while looking for env var use  grep, like this
 
@@ -264,14 +265,14 @@ env | grep GITPOD
 ```
 and you'll see this:
 
-![Env Filter on 'GITPOD'](images/EnvGitPod.png)
+![Env Filter on 'GITPOD'](/images/EnvGitPod.png)
 
 To see the value of a particular env var
 
 ```bash
 echo $THEIA_WORKSPACE_ROOT
 ```
-![Use Echo to print the value of the env var](images/EchoEnvVarValue.png)
+![Use Echo to print the value of the env var](/images/EchoEnvVarValue.png)
 
 To unset an evn var use
 
@@ -295,7 +296,7 @@ PROJECT_ROOT = '/workspace/terraform-beginner-bootcamp-2023'
 
 NOTE:  make sure that you use the fill name of your bash script in your .yml file. :unamused:  Don't forget the .sh 
 
-(AWS's instructions on installing the CLI)[https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html]
+[AWS's instructions on installing the CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
 We'll install the AWS CLI using a bash script. We are installing on a linux machine using the X86 (not ARM).
 
@@ -306,11 +307,11 @@ aws sts get-caller-identity
 ```
 This is the response you should see:
 
-![Alt text](images/sts_getcaller.png)
+![Alt text](/images/sts_getcaller.png)
 
 We'll set these values using ENV VARs (gp env)
 
-(How to set the AWS CLI Env Vars)[https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html]
+[How to set the AWS CLI Env Vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 
 These are the cmds I ran:
 ![Alt text](/images/SetAWSEnvs.png)
@@ -386,7 +387,7 @@ terraform apply --auto-approve
 
 When it all is correct you'll see a happy result, like the one below:
 
-![Terraform Apply](images/TFapply.png)
+![Terraform Apply](/images/TFapply.png)
 
 To see the outputs from your TF apply use this command:
 
@@ -410,7 +411,7 @@ Read more here: [TF state lock file](https://developer.hashicorp.com/terraform/l
 I am a little behind in my videos.
 I have been obsessed with my Texas Rangers winning their games and moving to the post season. :smile:
 
-![The Texas Rangers are at the top of the AL West](images/TXRangersStandings0924.png)
+![The Texas Rangers are at the top of the AL West](/images/TXRangersStandings0924.png)
 
 I have my AWS credentials in my set up, so when I run 
 
@@ -459,11 +460,11 @@ We'll paste the provider info we found from the TF AWS Provider page
 
 It could be an exam question that you can't have two of the same providers in your .tf file.
 You'll get an error;  It could look something like this:
-![Too Many AWS Providers](images/TooManyProviders.png)
+![Too Many AWS Providers](/images/TooManyProviders.png)
 
 We you try to run TF plan again, you'll get a different error:
 
-![Provider needs to by updated]](images/UpdateProvider.png)
+![Provider needs to by updated]](/images/UpdateProvider.png)
 
 Just run TF init again:
 
@@ -478,7 +479,7 @@ You'll see that the provider has been updated/added and you'll get green on your
 
 Yep, we run into yet another error:  What could it be?
 
-![Bucket naming error](images/BucketNamedWrong.png)
+![Bucket naming error](/images/BucketNamedWrong.png)
 
 This will also show that your code can be "correct" and not have any errors, but still won't
 produce the result you want.
@@ -490,7 +491,7 @@ at my AWS account to see if it did get made...
 
 It did!
 
-![Bucket Created](images/NewBucketwRandomName.png)
+![Bucket Created](/images/NewBucketwRandomName.png)
 
 An issue that may come up is that Bucket names need to start and end with a letter. I may look into 
 adding a prefix and suffix to my bucket names, but I'm sleep right now.
@@ -505,7 +506,7 @@ or
 terraform destroy --auto-approve
 ```
 
-![Alt text](images/BucketDestroy.png)
+![Alt text](/images/BucketDestroy.png)
 
 Now my bucket will be gone; it'll take a little bit of time for the name to disappear from the list b/c
 it's replicated to a few different places; it won't be gone immedately.
@@ -524,7 +525,7 @@ terraform plan
 terraform apply --auto-approve
 ```
 
-![Terraform cmds](images/TF_Cmds.png)
+![Terraform cmds](/images/TF_Cmds.png)
 
 ### Migrate your TF State file off of your local machine
 
@@ -533,39 +534,39 @@ In TF Cloud, we gotten logged in and made the project space and the workspace.
 ###### (I'm not entirely clear on how each 'space' is significant.  I'll have to go back and watch the video again as I didn't document it the first time through. I noticed that an issue/branch wasn't created in the video and I wanted to do that before continuing, so I started the video again after completeing those steps.)
 
 After createing the workspace for our TerraTowns TerraHouse, we get a block of code to use and instructions.
-![Cmds for getting our state into TF Cloud](images/TFCloudForTTTH.png)
+![Cmds for getting our state into TF Cloud](/images/TFCloudForTTTH.png)
 
 ```bash
 terraform init
 ```
 
 Uh oh!  Ran into an error!  We need to auth to TF Cloud!  See the error for help!
-![TF Cloud Error when running TF init again](images/TFCloudErrorLogin.png)
+![TF Cloud Error when running TF init again](/images/TFCloudErrorLogin.png)
 
 ```bash
 terraform login
 ```
-![Alt text](images/TFCloudLogin.png)
+![Alt text](/images/TFCloudLogin.png)
 
 I said "yes" and pressed the P - Print option to get here:
 
-![Alt text](images/TFCloudLicense-P.png)
+![Alt text](/images/TFCloudLicense-P.png)
 
 
 I was able to open a new page and get to this:
 
-![Alt text](images/TFCloudToken1.png)
+![Alt text](/images/TFCloudToken1.png)
 
-![Alt text](images/TFCloudCredComplete.png)
+![Alt text](/images/TFCloudCredComplete.png)
 
 Then I ran TF init again:
-![Alt text](images/TFCloudInitAgain.png)
+![Alt text](/images/TFCloudInitAgain.png)
 
 to get GREEN from my command:
-![Alt text](images/TFCloudInitComplete.png)
+![Alt text](/images/TFCloudInitComplete.png)
 
 and run TF Apply:
-![Alt text](images/TFCloudApply.png)
+![Alt text](/images/TFCloudApply.png)
 
 To get an error I can work with!! Yea!!!!
 
@@ -579,7 +580,7 @@ I created a variable sets in TF Cloud with the same info of my AWS ENVs.
 Re-ran the TF init, plan and apply cmds and I am not getting any glaring errors.
 
 When I look at my TF Cloud...
-![Alt text](images/TFCloudRunSuccess.png)
+![Alt text](/images/TFCloudRunSuccess.png)
 
 It seems happy and green.  I don't know if I should run a tf destroy to see what would happen...
 
@@ -601,7 +602,7 @@ chmod u+x generate_tfrc_creds.sh
 ```
 and will try to run this file now. :metal:
 
-![Alt text](images/TFCloudCredFileCreated.png)
+![Alt text](/images/TFCloudCredFileCreated.png)
 
 ### Success!!!
 
@@ -614,7 +615,7 @@ Now to update your gitpod.yml file to include this script
       source ./bin/generate_tfrc_credentials.sh
 ```
 My TF cmds worked and the TF Cloud page says it was run 2 mins ago and is GREEN!
-![Alt text](images/TFCloudNewCredsRun.png)
+![Alt text](/images/TFCloudNewCredsRun.png)
 
 This task is now automated!
 
@@ -632,10 +633,10 @@ I was doing the correct work.
 ###### (ls ~/.bash_profile) I know that `~` means home directory. I think I wasn't putting the correct characters in the right place. I had to re-learn this and find a way for my brain to keep that info.
 
 For my own notes the .bash_profile file is in /home/gitpod/.bash_profile.  I like to use vi, and I'll open the file with that.
-![Open .bash_profile with vi command](images/OpenBashProfilew_vicmd.png)
+![Open .bash_profile with vi command](/images/OpenBashProfilew_vicmd.png)
 
 That is done and we see the contents of the .bash_profile
-![Open the .bash_profile with vi](images/OpenBashProfile.png)
+![Open the .bash_profile with vi](/images/OpenBashProfile.png)
 
 Now to make my edits.
 I've entered the alias for tf but I will also see if I can add another for ls.
@@ -648,7 +649,7 @@ Used 'cat to see the file w/o opening it.
 ```bash
 cat /home/gitpod/.bash_profile
 ```
-![Alt text](images/catBashProfile.png)
+![Alt text](/images/catBashProfile.png)
 
 Don't go bash-ing any cats.
 
@@ -657,11 +658,11 @@ Now the aliases won't work unless you reload .bash_profile, with this command:
 ```bash
 source /home/gitpod/.bash_profile
 ```
-![Run source cmd to reload profile](images/SourceBashProfile.png)
+![Run source cmd to reload profile](/images/SourceBashProfile.png)
 
 Success!  When you type 'tf' in your shell, you'll get the main menu for terraform.
 
-![Typing 'tf' to for 'terraform'](images/TFAliasWorks.png)
+![Typing 'tf' to for 'terraform'](/images/TFAliasWorks.png)
 
 #### Bash script to load up our .bash_profile so we can have those alises each time
 
