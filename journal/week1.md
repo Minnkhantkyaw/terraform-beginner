@@ -62,6 +62,11 @@ PROJECT_ROOT
 
 [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 
+Here are some common Terraform Files.  
+![Common Terraform Files](/images/commonTFfiles.jpg)
+I got this off LinkedIn from [John Berth](https://www.linkedin.com/in/john-breth-730b7755/)
+
+
 We'll create some missing files:
 
 ```bash
