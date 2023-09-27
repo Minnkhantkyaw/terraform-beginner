@@ -43,3 +43,32 @@ git stash apply
 ```
 Then inside gitpod go ahead an commit the changes and proceed as you would if you'd created
 the branch before making the changes.
+
+## Restructure Root Module
+
+We'll format our file structure according to HashiCorp documentation.
+Our root module structure is as follows:
+
+```
+PROJECT_ROOT
+│
+├── main.tf                 # everything else.
+├── variables.tf            # This is where we'll define our variables.
+├── terraform.tfvars        # the data of variables we want to load into our terraform project
+├── providers.tf            # providers and their configuration
+├── outputs.tf              # Keeps the values for the variable so we can use the elsewhere
+└── README.md               # Gives you the info about the module, configuration options and more.
+```
+
+[Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+
+We'll create some missing files:
+
+```bash
+touch providers.tf
+touch outputs.tf
+touch variables.tf
+```
+and move the provider info into the provider.tf file.
+
+We have an output in main.tf; let's move that to output.tf
