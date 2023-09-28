@@ -1,7 +1,7 @@
 variable "UUID" {
   description = "An example input variable with UUID validation"
   type        = string
-  default = "0071972e-6023-468b-9eab-4f109beb9e81"
+  
 
 
   validation {

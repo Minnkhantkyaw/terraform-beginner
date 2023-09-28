@@ -105,3 +105,23 @@ We'll remove/destory our current resources in TF before we remove the cloud comp
 
 That was successful:
 ![TF Destroy before removing TF Cloud config](/images/TFDestroyb4TFCloudRemove.png) and my bucket is gone from my S3 list! 
+
+In the video Andrew had to create ENV VAR in TF Cloud.  I have done that already trying to fix a previous issue.
+
+We'll have to re initialize TF again:
+
+```bash
+tf init
+```
+
+but we have another small issue.  We need to remove the lock file so that TF can work,".terraform.lock.hcl" file and the .terraform folder (YES, I KNOW!! IT SCARES ME TOO!!!) and try the init again. TF should think we are local again. 
+
+SUCCESS!  My local tf init worked!!  My tf plan worked and so did my apply.  I got the tag set up with my UUID.
+
+![LocalTFapplywUUID](/images/LocalTFapplywUUID.png)
+
+You can pass variables several ways and this document will show you how that is done with examples: [How to pass TF variables](https://saturncloud.io/blog/how-to-pass-variables-to-terraform-modules-via-cli-or-tfvars-file/)
+
+I did go ahead and set up that variable, UUID in my TF Cloud proejct. 
+
+I did go ahead and create the bucket in my AWS S3 list and at this point we are storing the lock file locally, instead of TF Cloud.  Seems in the next video we'll try an import of resources.
