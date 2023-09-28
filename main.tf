@@ -10,6 +10,6 @@ resource "aws_s3_bucket" "example" {
   bucket = random_string.s3_bucket_name.id
 
   tags = {
-    UserUUID = ""
+    UUID = var.UUID
   }
 }

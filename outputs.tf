@@ -1,4 +1,4 @@
-output "UserUUID" {
+output "UUID" {
   description = "Value that is unique."
-  value       = var.UserUUID
+  value       = var.UUID
 }
