@@ -273,3 +273,8 @@ Opps! An issue with my variables:
 ![Alt text](/images/Module_tfVariables.png)
 
 Make sure you have a reference to the variable in your top level variables.tf file.  It can be a reduced definition.
+
+Another issue:  
+
+![Alt text](/images/ModuleTFvariableValues.png)
+I'll have to come back to this and figure out what I did incorrectly.
