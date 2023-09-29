@@ -181,3 +181,95 @@ When I did the ```bash tf apply --auto-approve```, the random string is removed,
 
 I think this is something I'd have to play with a little more for better understanding.
 
+## Terrahouse Module
+
+We are creating the directory structure for our modules, and we'll base that structure on hashicorp's documentation.
+[TF module directory struture](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+
+We'll need a new folder. Under that folder, create these files:
+
+```bash
+touch main.tf
+touch variables.tf
+touch outputs.tf
+touch LICENSE
+touch README.md
+```
+
+- list items moved from top level main.tf to module/main.tf
+
+[Info on AWS provider options](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#provider-configuration)
+We are leaving ours empty for the time being but you can use this section to provide credentials.
+
+```bash
+provider "aws" {
+  region     = "us-west-2"
+  access_key = "my-access-key"
+  secret_key = "my-secret-key"
+}
+```
+
+We've moved our ```variables.tf ``` to the module/variable.tf in its entirety. The top level variables.tf still exists but is empty.
+
+I moved my ```outputs.tf``` file from the top level to the module folder. It no longer lives at the top level.
+
+### Reference a Module
+Now since top level main.tf is mostly empty, how do we reference the module?
+[Reference a module in TF](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+We are referenceing our own (local) module. The relative path to the module is necessary. 
+
+```bash
+# https://developer.hashicorp.com/terraform/language/modules/sources
+
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  # pass in any vars you need
+  UUID           = var.UUID
+  s3_bucket_name = var.s3_bucket_name
+}
+```
+### Module variables or input
+
+```bash
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  # pass in any vars you need
+  UUID           = var.UUID
+  s3_bucket_name = var.s3_bucket_name
+}
+```
+
+These variables have been set up in the folder's/module's ```/modules/terrahouse_aws/variables.tf```.  We'll add them to the 'call' of this module and give them values, but is called from the top level's ```main.tf``` 
+
+### Running TF with the new structure.
+Let's give it a try and see what needs to be corrected..
+
+```bash 
+tf init
+tf fmt
+tf plan
+```
+
+Minor issue: 
+![Alt text](/images/Module-TFinitProvider.png)
+We can remove the extra provider info from the child module. 
+I'll comment that out....
+
+Otherwise a good ```tf init```
+![Alt text](/images/ModuleTFinit-green.png)
+
+I always like my files to look good:
+
+``` bash
+tf fmt
+```
+and now run plan
+``` bash
+tf plan
+```
+Opps! An issue with my variables:
+
+![Alt text](/images/Module_tfVariables.png)
+
+Make sure you have a reference to the variable in your top level variables.tf file.  It can be a reduced definition.
