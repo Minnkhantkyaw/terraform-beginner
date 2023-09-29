@@ -125,3 +125,45 @@ You can pass variables several ways and this document will show you how that is 
 I did go ahead and set up that variable, UUID in my TF Cloud proejct. 
 
 I did go ahead and create the bucket in my AWS S3 list and at this point we are storing the lock file locally, instead of TF Cloud.  Seems in the next video we'll try an import of resources.
+
+## Terraform Import and Configuration Drift
+In the last video, we deleted the .lock.hcl file.  That means that TF doesn't know what we have built as there is no
+"source of truth" to refer to.  To fix this we'll try to import the resources and let TF know of them.
+
+Keep in mind not all resources can be imported. Fortunately, our two items can; an S3 bucket and a **random** string.
+
+I've run a ``` tf init ``` first to get TF set up on in my env.
+
+#### Import the **random** string
+I was able to get the random string imported first, with this exact cmd:
+```bash
+terraform import random_string.s3_bucket_name m2g094yvm028oas0
+```
+
+![Random String-Name Imported](/images/Import-Random-string.png)
+
+![Import-Random-string-done](/images/Import-Random-string-done.png)
+
+#### Import the S3 bucket
+We can look up the s3 bucket and see that there is a way to import that item:
+
+[Import an S3 Bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+the format of that cmd is:
+```bash
+terraform import aws_s3_bucket.bucket bucket-name
+```
+
+I tried this a few times and was only successful my final time, after asking ChatGPT.
+
+This was the cmd I used for my bucket import:
+```bash
+terraform import aws_s3_bucket.example m2g094yvm028oas0
+```
+
+![Import an S3 Bucket](/images/Import-S3_Bucket.png)
+
+and the success:
+![S3 Bucket Import Success](/images/S3-Bucket-Import-Success.png)
+
+Now if you view-only the .tfstate file, you'll see the two resources that were brought in, the bucket and the random string-name
