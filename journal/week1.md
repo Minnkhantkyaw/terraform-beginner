@@ -167,3 +167,17 @@ and the success:
 ![S3 Bucket Import Success](/images/S3-Bucket-Import-Success.png)
 
 Now if you view-only the .tfstate file, you'll see the two resources that were brought in, the bucket and the random string-name
+
+I stopped my env and the video. I lost the screen results so I coudln't take screen shots.
+
+I ran tf apply and it did destory my bucket but did recreate it with the same name.  I see this an an issue b/c I didn't want the bucket destoryed and recreated.  Maybe I don't fully understand how import works. 
+I can see this being an issue if you have a big database with lots of info.  My tf plan shows that the ransdom string will be destoryed b/c I pulled that code out of my config.  
+
+![Alt text](/images/TFPlan-RemoveRandom.png)
+
+When I did the ```bash tf apply --auto-approve```, the random string is removed, my bucket is still there with it's same name.
+
+![Alt text](/images/TFapply-KeepsBucket.png)
+
+I think this is something I'd have to play with a little more for better understanding.
+
