@@ -7,11 +7,12 @@ terraform {
   #   }
 
   # }
-   required_providers {
-  #   random = {
-  #     source  = "hashicorp/random"
-  #     version = "3.5.1"
-  #   }
+
+  required_providers {
+    #   random = {
+    #     source  = "hashicorp/random"
+    #     version = "3.5.1"
+    #   }
 
     aws = {
       source  = "hashicorp/aws"
@@ -22,6 +23,9 @@ terraform {
 
 provider "aws" {
   # Configuration options
+  #   region     = "us-west-2"
+  #   access_key = "my-access-key"
+  #   secret_key = "my-secret-key"
 }
 
 # provider "random" {

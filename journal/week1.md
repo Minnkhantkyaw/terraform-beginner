@@ -175,9 +175,116 @@ I can see this being an issue if you have a big database with lots of info.  My 
 
 ![Alt text](/images/TFPlan-RemoveRandom.png)
 
-When I did the ```bash tf apply --auto-approve```, the random string is removed, my bucket is still there with it's same name.
+When I did the ``` tf apply --auto-approve```, the random string is removed, my bucket is still there with it's same name.
 
 ![Alt text](/images/TFapply-KeepsBucket.png)
 
 I think this is something I'd have to play with a little more for better understanding.
 
+## Terrahouse Module
+
+We are creating the directory structure for our modules, and we'll base that structure on hashicorp's documentation.
+[TF module directory struture](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+
+We'll need a new folder. Under that folder, create these files:
+
+```bash
+touch main.tf
+touch variables.tf
+touch outputs.tf
+touch LICENSE
+touch README.md
+```
+
+- list items moved from top level main.tf to module/main.tf
+
+[Info on AWS provider options](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#provider-configuration)
+We are leaving ours empty for the time being but you can use this section to provide credentials.
+
+```bash
+provider "aws" {
+  region     = "us-west-2"
+  access_key = "my-access-key"
+  secret_key = "my-secret-key"
+}
+```
+
+We've moved our ```variables.tf ``` to the module/variable.tf in its entirety. The top level variables.tf still exists but is empty.
+
+I moved my ```outputs.tf``` file from the top level to the module folder. It no longer lives at the top level.
+
+### Reference a Module
+Now since top level main.tf is mostly empty, how do we reference the module?
+[Reference a module in TF](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+We are referenceing our own (local) module. The relative path to the module is necessary. 
+
+```bash
+# https://developer.hashicorp.com/terraform/language/modules/sources
+
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  # pass in any vars you need
+  UUID           = var.UUID
+  s3_bucket_name = var.s3_bucket_name
+}
+```
+### Module variables or input
+
+```bash
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  # pass in any vars you need
+  UUID           = var.UUID
+  s3_bucket_name = var.s3_bucket_name
+}
+```
+
+These variables have been set up in the folder's/module's ```/modules/terrahouse_aws/variables.tf```.  We'll add them to the 'call' of this module and give them values, but is called from the top level's ```main.tf``` 
+
+### Running TF with the new structure.
+Let's give it a try and see what needs to be corrected..
+
+```bash 
+tf init
+tf fmt
+tf plan
+```
+
+Minor issue: 
+![Alt text](/images/Module-TFinitProvider.png)
+We can remove the extra provider info from the child module. 
+I'll comment that out....
+
+Otherwise a good ```tf init```
+![Alt text](/images/ModuleTFinit-green.png)
+
+I always like my files to look good:
+
+``` bash
+tf fmt
+```
+and now run plan
+``` bash
+tf plan
+```
+Opps! An issue with my variables:
+
+![Alt text](/images/Module_tfVariables.png)
+
+Make sure you have a reference to the variable in your top level variables.tf file.  It can be a reduced definition.
+
+Another issue:  
+
+![Alt text](/images/ModuleTFvariableValues.png)
+I'll have to come back to this and figure out what I did incorrectly.
+
+10/03/23 - Tuesday
+
+I had a weekend away and while I'm behind I may need to do this lesson over. 
+[Terraform Import and Configuration Drift]
+I had some trouble picking up where I left off.  I couldn't get my bucket to be recognized by TF.  It said it already knew I had it but I couldn't see it in the .tfstate file.  
+I looked up a few different solutions on chatGPT, but none of them really helped.  I tried to use the import code inside the main.tf and used a command to generate code (that I can't find now or the cmd I ran in my history!)
+
+Right now, my bucket is beig seeing by TF and I think is in the correct state to move to the next video. :confused:
+Now to commite and merge my code. :wink:
