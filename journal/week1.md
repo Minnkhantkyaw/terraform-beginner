@@ -277,14 +277,25 @@ Make sure you have a reference to the variable in your top level variables.tf fi
 Another issue:  
 
 ![Alt text](/images/ModuleTFvariableValues.png)
-I'll have to come back to this and figure out what I did incorrectly.
+I'll have to come back to this and figure out what I did incorrectly. 
 
-10/03/23 - Tuesday
+I think I corrected some issues redoing the last video that helped with some issues I was having.
 
-I had a weekend away and while I'm behind I may need to do this lesson over. 
-[Terraform Import and Configuration Drift]
-I had some trouble picking up where I left off.  I couldn't get my bucket to be recognized by TF.  It said it already knew I had it but I couldn't see it in the .tfstate file.  
-I looked up a few different solutions on chatGPT, but none of them really helped.  I tried to use the import code inside the main.tf and used a command to generate code (that I can't find now or the cmd I ran in my history!)
+### Outputs from modules
+To get the output from your modules you'll have to referece them in your main/top level ```outputs.tf```
 
-Right now, my bucket is beig seeing by TF and I think is in the correct state to move to the next video. :confused:
-Now to commite and merge my code. :wink:
+```
+   output UUID {
+    description = "This is the uniquie tag of our bucket"
+    value = module.terrahouse_aws.UUID
+}
+```
+
+
+
+~~10/03/23 - Tuesday
+I had a weekend away and while I'm behind I may need to do this lesson over. [Terraform Import and Configuration Drift] I had some trouble picking up where I left off.  I couldn't get my bucket to be recognized by TF.  It said it already knew I had it but I couldn't see it in the .tfstate file. I looked up a few different solutions on chatGPT, but none of them really helped. I tried to use the import code inside the main.tf and used a command to generate code (that I can't find now or the cmd I ran in my history!) Right now, my bucket is beig seeing by TF and I think is in the correct state to move to the next video. :confused: Now to commite and merge my code. :wink:~~
+
+## Create Terrahouse Module
+I got off in my videos.  I restarted the previous video forgetting that I was 1/2 done with this one.  I may remove some notes and go back to the to of my previous notes for this video "Create Terrahouse Module" and follow from there.
+
