@@ -22,5 +22,7 @@ resource "aws_s3_bucket" "example" {
     UUID = var.UUID
   }
 }
+
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
 # https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html?icmpid=docs_amazons3_console
+

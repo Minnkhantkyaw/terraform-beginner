@@ -175,7 +175,7 @@ I can see this being an issue if you have a big database with lots of info.  My 
 
 ![Alt text](/images/TFPlan-RemoveRandom.png)
 
-When I did the ```bash tf apply --auto-approve```, the random string is removed, my bucket is still there with it's same name.
+When I did the ``` tf apply --auto-approve```, the random string is removed, my bucket is still there with it's same name.
 
 ![Alt text](/images/TFapply-KeepsBucket.png)
 
@@ -278,3 +278,13 @@ Another issue:
 
 ![Alt text](/images/ModuleTFvariableValues.png)
 I'll have to come back to this and figure out what I did incorrectly.
+
+10/03/23 - Tuesday
+
+I had a weekend away and while I'm behind I may need to do this lesson over. 
+[Terraform Import and Configuration Drift]
+I had some trouble picking up where I left off.  I couldn't get my bucket to be recognized by TF.  It said it already knew I had it but I couldn't see it in the .tfstate file.  
+I looked up a few different solutions on chatGPT, but none of them really helped.  I tried to use the import code inside the main.tf and used a command to generate code (that I can't find now or the cmd I ran in my history!)
+
+Right now, my bucket is beig seeing by TF and I think is in the correct state to move to the next video. :confused:
+Now to commite and merge my code. :wink:
