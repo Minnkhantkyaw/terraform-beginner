@@ -290,12 +290,21 @@ To get the output from your modules you'll have to referece them in your main/to
     value = module.terrahouse_aws.UUID
 }
 ```
+to see your output
 
+``` 
+terraform output
+```
+![Alt text](/images/TFModuleOutput.png)
 
+We need to make sure that we do ``` tf destroy --auto-approve``` as we are completing our lessons.
 
-~~10/03/23 - Tuesday
-I had a weekend away and while I'm behind I may need to do this lesson over. [Terraform Import and Configuration Drift] I had some trouble picking up where I left off.  I couldn't get my bucket to be recognized by TF.  It said it already knew I had it but I couldn't see it in the .tfstate file. I looked up a few different solutions on chatGPT, but none of them really helped. I tried to use the import code inside the main.tf and used a command to generate code (that I can't find now or the cmd I ran in my history!) Right now, my bucket is beig seeing by TF and I think is in the correct state to move to the next video. :confused: Now to commite and merge my code. :wink:~~
+![Alt text](/images/ModuleTFDestory--auto-a.png)
 
-## Create Terrahouse Module
-I got off in my videos.  I restarted the previous video forgetting that I was 1/2 done with this one.  I may remove some notes and go back to the to of my previous notes for this video "Create Terrahouse Module" and follow from there.
+Ran a ```tf show``` to make sure that my resources were removed.
 
+![Alt text](/images/Module-TF-show.png)
+
+My Texas Rangers won their first playoff game against the TampaBay Rays.  4-0 
+
+###### Create Terrahouse Module video finished!
