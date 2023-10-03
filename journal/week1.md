@@ -308,3 +308,6 @@ Ran a ```tf show``` to make sure that my resources were removed.
 My Texas Rangers won their first playoff game against the TampaBay Rays.  4-0 
 
 ###### Create Terrahouse Module video finished!
+
+## Static Website Hosting
+This is the next video to start, completed the last one and can start fresh.
