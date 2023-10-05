@@ -311,3 +311,22 @@ My Texas Rangers won their first playoff game against the TampaBay Rays.  4-0
 
 ## Static Website Hosting
 This is the next video to start, completed the last one and can start fresh.
+
+Tasks:
+- configure s3 bucket for static webpage
+- upload an index.html
+- upload an error.html
+- update the outputs for the static webpage url
+
+Asking chatGPT gives us info that is outdated but guides us to what we are looking for.
+
+We want to use TF to build a website using an s3 bucket.
+Searching AWS's documentation, we get this page:
+[aws_s3_bucket_website_configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration)
+
+Once that has been run through plan and apply, making sure it all works up to this point, go and check in AWS/S3 to see if the bucket is enabled for static website hosting.  It is!
+![Alt text](/images/StaticWebsiteOn.png)
+
+We'll get the output for the website-end point. Check the docs to see what output matches what we want best.
+
+

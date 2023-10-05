@@ -3,5 +3,5 @@ variable "UUID" {
 }
 
 variable "s3_bucket_name" {
-     type = string
+  type = string
 }
