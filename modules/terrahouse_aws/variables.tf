@@ -13,3 +13,23 @@ variable "s3_bucket_name" {
   type    = string
   #default = "m2g094yvm028oas0"
 }
+
+variable "index_html_path" {
+  type        = string
+  description = "Path to the index.html file"
+
+  validation {
+    condition     = fileexists(var.index_html_path)
+    error_message = "The specified path does not exist."
+  }
+}
+
+variable "error_html_path" {
+  type        = string
+  description = "Path to the error.html file"
+
+  validation {
+    condition     = fileexists(var.error_html_path)
+    error_message = "The specified path does not exist."
+  }
+}

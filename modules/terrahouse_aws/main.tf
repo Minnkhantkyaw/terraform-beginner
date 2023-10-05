@@ -39,5 +39,21 @@ resource "aws_s3_bucket_website_configuration" "s3website" {
   error_document {
     key = "error.html"
   }
-  
+ }
+
+# uploade a file to the s3 bucket
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
+ resource "aws_s3_object" "index" {
+  bucket = var.s3_bucket_name
+  key    = "index.html"
+  source = var.index_html_path
+    etag = filemd5(var.index_html_path)
 }
+
+ resource "aws_s3_object" "error" {
+  bucket = var.s3_bucket_name
+  key    = "error.html"
+  source = var.error_html_path
+
+  etag = filemd5(var.error_html_path)
+ }
