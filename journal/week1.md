@@ -346,8 +346,25 @@ If you change/update the index/error files, now it will let you know that someth
 [TF File Exists!](https://developer.hashicorp.com/terraform/language/functions/fileexists) This function will ensure that the file has been created.
 
 I noticed that once we had the file paths in place, the top level main.tf had an error in it.  You need to make sure that you pass in the variables needed.  
-I have two lines commented out, but see how there is a lot of red in this screenshot:
+I have two lines commented out, but see how there is a lot of red in this screenshot with those lines (*file_path) commented out:
 ![Alt text](/images/mainTFErrors.png)
 
-Once you add the necessary variables into the top level main.tf they go away... b/c you gave it the needed info.
+Once you add the necessary variables into the top level main.tf, they go away... b/c you gave it the needed info.
 ![Alt text](/images/mainTFErrorsCorrected.png)
+
+One thing I'm going to try is to remove the files from the bucket and see if they'll be uploaded again, and if any change to the text has been detected. 
+
+Removed the files from my bucket:
+![Alt text](/images/BucketEmpty.png)
+
+2 items will be created, the index and error html files.
+![Alt text](/images/2FilesToCreate.png)
+
+I did create/copy the files to the bucket.
+![Alt text](/images/2FilesUploaded.png)
+
+Make sure to destroy your resources once you have things in place.
+
+Bucket was removed.
+
+![Alt text](/images/BucketRemoved.png)
