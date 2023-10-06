@@ -44,7 +44,26 @@ resource "aws_s3_bucket_website_configuration" "s3website" {
 # Bucket policy
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy
 
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.example.id
-  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+  # policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+  policy = jsonencode ({
+    "Version" = "2012-10-17",
+    "Statement" = [
+        {
+            "Sid": "AllowCloudFrontServicePrincipalReadOnly",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "cloudfront.amazonaws.com"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET${var.s3_bucket_name.bucket}/*",
+            "Condition": {
+                "StringEquals": {
+                    "AWS:SourceArn": "arn:aws:cloudfront::ACCOUNT_ID:distribution/DISTRIBUTION_ID"
+                }
+            }
+        },
+      ]
+})
 }

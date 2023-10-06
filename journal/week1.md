@@ -372,9 +372,14 @@ Bucket was removed.
 ## Content Delivery Network
 Creating a CDN for our static s3 hosted website.
 (AWS CloudFront Distribution)[https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution]
+(AWS CloudFront OAC)[https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/]
+
 
 2 new files created:  resource-cdn.tf and resource-storage.tf
 Moved the bucket and files portion into the storage and now looking up how to create
 a CDN for the other file.
 
 In video Content Delivery Network @ 15:49 and going to commit and take a break.
+
+### TF Data Sources
+[Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)

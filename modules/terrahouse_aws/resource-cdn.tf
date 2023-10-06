@@ -6,7 +6,7 @@ locals {
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_origin_access_control
-resource "aws_cloudfront_origin_access_control" "" {
+resource "aws_cloudfront_origin_access_control" "default" {
   name                              = "OAC for ${var.s3_bucket_name}"
   description                       = "Origin Access Control for S3 Static Website for ${var.s3_bucket_name}."
   origin_access_control_origin_type = "s3"
@@ -52,7 +52,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   restrictions {
     geo_restriction {
       restriction_type = "none"
-      locations        = [ ]
+      locations        = []
     }
   }
 
