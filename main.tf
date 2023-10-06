@@ -6,6 +6,8 @@ terraform {
 module "terrahouse_aws" {
   source = "./modules/terrahouse_aws"
   # pass in any vars you need
-  UUID           = var.UUID
-  s3_bucket_name = var.s3_bucket_name
+  UUID            = var.UUID
+  s3_bucket_name  = var.s3_bucket_name
+  index_html_path = var.index_html_path
+  error_html_path = var.error_html_path
 }

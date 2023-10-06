@@ -310,4 +310,61 @@ My Texas Rangers won their first playoff game against the TampaBay Rays.  4-0
 ###### Create Terrahouse Module video finished!
 
 ## Static Website Hosting
-This is the next video to start, completed the last one and can start fresh.
+
+Tasks:
+- configure s3 bucket for static webpage
+- upload an index.html
+- upload an error.html
+- update the outputs for the static webpage url
+
+Asking chatGPT gives us info that is outdated but guides us to what we are looking for.
+
+We want to use TF to build a website using an s3 bucket.
+Searching AWS's documentation, we get this page:
+[aws_s3_bucket_website_configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration)
+
+Once that has been run through plan and apply, making sure it all works up to this point, go and check in AWS/S3 to see if the bucket is enabled for static website hosting.  It is!
+![Alt text](/images/StaticWebsiteOn.png)
+
+We'll get the output for the website-end point. Check the docs to see what output matches what we want best.
+
+Upload files to the s3 bucket, index.html and error.html
+(Upload files to s3)[https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object]
+
+(FileSystems and WorkSpace info)[https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info]
+
+I was able to upload the index.html file to the bucket. I'll get the error.html uploaded as well.
+![Alt text](/images/Indexhtml.png)
+![Alt text](/images/IndexandErrorhtml.png)
+
+Also let's put this filepath into a variable so that it's not hard coded and that we might be able to use this module again.  We'll use ${path.root} and append rest of the path needed.
+
+Using an "e-tag" will help determine is a files contents have changed. I found this online: [a little about Tf and e-tags](https://www.reddit.com/r/Terraform/comments/x1m49t/help_understating_etag_option_from_aws_s3_object/)
+
+If you change/update the index/error files, now it will let you know that something has changed.
+
+[TF File Exists!](https://developer.hashicorp.com/terraform/language/functions/fileexists) This function will ensure that the file has been created.
+
+I noticed that once we had the file paths in place, the top level main.tf had an error in it.  You need to make sure that you pass in the variables needed.  
+I have two lines commented out, but see how there is a lot of red in this screenshot with those lines (*file_path) commented out:
+![Alt text](/images/mainTFErrors.png)
+
+Once you add the necessary variables into the top level main.tf, they go away... b/c you gave it the needed info.
+![Alt text](/images/mainTFErrorsCorrected.png)
+
+One thing I'm going to try is to remove the files from the bucket and see if they'll be uploaded again, and if any change to the text has been detected. 
+
+Removed the files from my bucket:
+![Alt text](/images/BucketEmpty.png)
+
+2 items will be created, the index and error html files.
+![Alt text](/images/2FilesToCreate.png)
+
+I did create/copy the files to the bucket.
+![Alt text](/images/2FilesUploaded.png)
+
+Make sure to destroy your resources once you have things in place.
+
+Bucket was removed.
+
+![Alt text](/images/BucketRemoved.png)
