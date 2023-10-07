@@ -47,6 +47,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   price_class = "PriceClass_200"
+  # retain_on_delete = false
 
   restrictions {
     geo_restriction {
