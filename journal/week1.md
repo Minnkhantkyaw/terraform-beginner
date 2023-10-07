@@ -368,3 +368,91 @@ Make sure to destroy your resources once you have things in place.
 Bucket was removed.
 
 ![Alt text](/images/BucketRemoved.png)
+
+## Content Delivery Network
+Creating a CDN for our static s3 hosted website.
+(AWS CloudFront Distribution)[https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution]
+(AWS CloudFront OAC)[https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/]
+
+
+2 new files created:  resource-cdn.tf and resource-storage.tf
+Moved the bucket and files portion into the storage and now looking up how to create
+a CDN for the other file.
+
+In video Content Delivery Network @ 15:49 and going to commit and take a break.
+
+### TF Data Sources
+[Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
+
+Data Sources allow us to get info from the resources we create or from our account.
+We'll use the sts get-caller-identity to output some info that we'll use.
+
+[Data source for get-caller-identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
+
+[TF locals](https://developer.hashicorp.com/terraform/language/values/locals)
+
+Had some issues with TF plan working.  I had the bucket name wrong in the bucket policy... That is the hardest part for me. I wonder around in this code and look at examples, and I get it corrected but damn it takes me so F**KING long to get there!!  :rage:
+
+Got TF plan working and issues corrected.  Ready for TF apply -a--a
+
+This will take a few minutes up to 15 to get deployed correctly.  
+
+![Alt text](/images/TFApplyCDN.png)
+
+But I did get an error...
+
+![Alt text](/images/TFApplyCND_ErrorFileUpLoad.png)
+
+My files didn't get uploaded.  I'll going to try the apply again...and it was successful. 
+The files were created and uploaded.
+
+![Alt text](/images/TFApplyCDN_FilesCreated.png)
+
+The bucket was created and the files uploaded.  When we go look at CloudFront and look at the distribution name,
+copy it and paste into our browser, the files are downloaded but not displayed.  This needs to be fixed.
+
+I found an answer here: 
+[Set Content Type for files uploaded to S3 in TF](https://github.com/hashicorp/terraform-provider-aws/issues/13134)
+
+Run another 
+
+```
+tf plan 
+tf apply --auto-approve
+```
+and let the changes take place.
+
+TF thought the file was an application, so it was going to download it. Change it to text/html will allow it to be displayed
+
+![Alt text](/images/FileTypeChangeforCDN.png)
+
+BUT...
+Becuased this behavior is cached, we have to set up an invalidation for this distribution.
+![Alt text](/images/Invalidate.png)
+
+![Alt text](/images/CreateInvalidation.png)
+
+and it will work on that task:
+![Alt text](/images/WorkingOnInvalidation.png)
+
+and complete.
+![Alt text](/images/ValidationComplete.png)
+
+Still not showing, but downloading...
+
+Do we HAVE to make a new invalidation each time?  Really? We can just "re-run" the last one?  Ugh!!!
+
+I was still having an issue with the files downloading... I had to clear the browser cache for it
+to work properly.  ChatGPT is good for a few things:
+![Alt text](/images/ChatGPT_ClearBrowser.png)
+
+Again, took too long to find a solution to get this working... ugh!! I bet I spend 15-20 mins on it.  This makes me feel like I am not learning.   Glad I got it documented. 
+
+I wanted to see an example of where the retain on delete was being used; It helps me, to see where it is in the code and how it is used.
+[TF CDN retain_on_delete](https://blakesmith.me/2016/04/02/terraform-aws-static-site-with-cloudfront.html)
+
+Remember to
+```
+tf destroy --auto-approve
+```
+at the end of your work before you commit your branch so that you don't run up a bill of some kind.
