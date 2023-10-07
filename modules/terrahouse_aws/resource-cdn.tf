@@ -2,8 +2,7 @@
 
 locals {
     s3_origin_id = "SMortonOriginID"
-  
-}
+  }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_origin_access_control
 resource "aws_cloudfront_origin_access_control" "default" {
@@ -16,7 +15,7 @@ resource "aws_cloudfront_origin_access_control" "default" {
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name              = s3_bucket_name.bucket_regional_domain_name
+    domain_name              = aws_s3_bucket.example.bucket_regional_domain_name
     origin_access_control_id = aws_cloudfront_origin_access_control.default.id
     origin_id                = local.s3_origin_id
   }

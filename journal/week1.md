@@ -383,3 +383,12 @@ In video Content Delivery Network @ 15:49 and going to commit and take a break.
 
 ### TF Data Sources
 [Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
+
+Data Sources allow us to get info from the resources we create or from our account.
+We'll use the sts get-caller-identity to output some info that we'll use.
+
+[Data source for get-caller-identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
+
+[TF locals](https://developer.hashicorp.com/terraform/language/values/locals)
+
+Had some issues with TF plan working.  I had the bucket name wrong in the bucket policy...  That is the hardest part for me. I wonder around this code and look at examples, and I get it corrected but damn it takes me so F**KING long to get there!!  :angry:

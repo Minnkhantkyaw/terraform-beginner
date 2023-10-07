@@ -51,16 +51,16 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
     "Version" = "2012-10-17",
     "Statement" = [
         {
-            "Sid": "AllowCloudFrontServicePrincipalReadOnly",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "cloudfront.amazonaws.com"
+            "Sid" = "AllowCloudFrontServicePrincipalReadOnly",
+            "Effect" = "Allow",
+            "Principal" = {
+                "Service" = "cloudfront.amazonaws.com"
             },
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET${var.s3_bucket_name.bucket}/*",
-            "Condition": {
-                "StringEquals": {
-                    "AWS:SourceArn": "arn:aws:cloudfront::ACCOUNT_ID:distribution/DISTRIBUTION_ID"
+            "Action" = "s3:GetObject",
+            "Resource" = "arn:aws:s3:::${aws_s3_bucket.example.id}/*",
+            "Condition" = {
+                "StringEquals" = {
+                    "AWS:SourceArn" = "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${aws_cloudfront_distribution.s3_distribution.id}"
                 }
             }
         },
