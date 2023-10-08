@@ -545,3 +545,10 @@ resource "terraform_data" "content_version" {
     ignore_changes = [ etag ]
   }
 ```
+
+TF does see the changes and will apply them,
+
+![Alt text](/images/FileVersionUpdated-changed.png)
+
+but this does not fix the invalidation issue we were having before.
+
