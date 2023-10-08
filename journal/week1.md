@@ -456,3 +456,99 @@ Remember to
 tf destroy --auto-approve
 ```
 at the end of your work before you commit your branch so that you don't run up a bill of some kind.
+
+## Terraform Data and Content Version
+
+We will set up a content version that will update ONLY when we want it to.  We do not want TF to push an update
+each time we perform a ``` tf apply --auto-approve ```
+
+With help from ChatGPT: "write a terraform variable for content_version that only uses positive numbers starting at +1."
+we get:
+
+```tf
+variable "content_version" {
+  description = "Version number for your content"
+  type        = number
+  validation {
+    condition     = var.content_version > 0
+    error_message = "Content version must be a positive number starting at +1."
+  }
+  default     = 1
+}
+
+```
+
+I've added this variable's definition to each level of code (module level and main level)
+
+### Using TF Meta-Arguments for Lifecycle Resource Management
+
+https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle
+
+The arugment we'll use is the ignore_changes based on the etag value.
+```
+  lifecycle {
+    ignore_changes = [ etag ]
+  }
+ 
+```
+
+Run these commands and correct any errors. I tend to spell the terraform.tfvars file name wrong, a lot.
+``` 
+tf init
+tf plan
+tf apply --auto-approve
+```
+
+Let the resources build. It may take a few minutes. I have to run the auto apply again b/c my files don't get created the first time.
+ - something I need to look into as it keeps happening.
+
+Now we'll test this content versioning.
+
+I'll make a change to index.html and run tf plan again.  It'll see a change that needs to be made.
+
+```
+  etag = filemd5(var.index_html_path)
+  
+  # lifecycle {
+  #   ignore_changes = [ etag ]
+  # }
+```
+
+With the code commemted out, the change is detected.
+![Alt text](/images/FileChangeDetected.png)
+
+Once we remove the comments from the code, the change is ignored.
+```
+  etag = filemd5(var.index_html_path)
+  
+  lifecycle {
+    ignore_changes = [ etag ]
+  }
+```
+![Alt text](/images/FileChangesIgnored.png)
+
+We want the update to take place when a new version is needed.
+
+[TF terraform_data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
+We'll use terraform_data to get some info about the content version and once that is updated, trigger the change to up load a new version of the file. (resource-storage.tf)
+```t
+resource "terraform_data" "content_version" {
+  input = var.content_version  
+}
+```
+
+
+```t
+  lifecycle {
+    replace_triggered_by = [terraform_data.content_version.output]
+    ignore_changes = [ etag ]
+  }
+```
+
+TF does see the changes and will apply them,
+
+![Alt text](/images/FileVersionUpdated-changed.png)
+
+but this does not fix the invalidation issue we were having before.
+
