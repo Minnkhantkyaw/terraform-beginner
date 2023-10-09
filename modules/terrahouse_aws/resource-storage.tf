@@ -30,13 +30,13 @@ resource "aws_s3_bucket_website_configuration" "s3website" {
 # upload the files to the s3 bucket, using a list of file names and for_each
 
 resource "aws_s3_object" "upload_files" {
- for_each = fileset("${path.root}/public/assets","*.{jpg,gif,png}")
+ for_each = fileset(var.assets_path,"*.{jpg,gif,png}")
   bucket = var.s3_bucket_name
-  key    = "/assets/${each.key}"
-  source = "${path.root}/pubic/assets/${each.key}"
+  key    = "assets/${each.key}"
+  source = "${var.assets_path}/${each.key}"
   #content_type = "text/html"
 
-  etag = filemd5("${path.root}/pubic/assets/${each.key}")
+  etag = filemd5("${var.assets_path}${each.key}")
   
   lifecycle {
     replace_triggered_by = [terraform_data.content_version.output]
