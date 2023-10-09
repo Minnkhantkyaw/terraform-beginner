@@ -621,3 +621,59 @@ With those uploaded, we'll install a simple http server, found here [Simple NPM 
 I've uploaded and put image links into my index.html page. 
 I'm going to push up my work so far and go to bed.
 stopped at 7:52 in video Assets Upload and For Each
+
+10/09/23
+We'll use TF console to help us figure out how to get a list of file from the /public/assets folder and iterate through them to upload them to the s3 bucket.
+
+[TF for_each](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
+
+- I corrected the issue of needing to copy the .tfvars file manually each time, before I could run ``` tf init ```.
+
+When I asked ChatGPT for "I want to upload a list of files to an s3 bucket, using terraform for_each, please give me an example", I got this example:
+
+```t
+variable "s3_bucket_name" {
+  description = "Name of the S3 bucket"
+  type        = string
+}
+
+variable "files_to_upload" {
+  description = "List of files to upload to the S3 bucket"
+  type        = list(string)
+}
+
+resource "aws_s3_bucket" "example" {
+  bucket = var.s3_bucket_name
+  acl    = "private" # You can set the ACL as needed
+}
+
+resource "aws_s3_bucket_object" "file_upload" {
+  for_each = { for idx, file in var.files_to_upload : idx => file }
+
+  bucket       = aws_s3_bucket.example.id
+  key          = each.key
+  source       = each.value
+  content_type = "application/octet-stream" # Set the appropriate content type
+}
+```
+
+We'll try a few things using [TF Console](https://developer.hashicorp.com/terraform/cli/commands/console)
+
+``` 
+tf console
+```
+
+[TF Fileset function](https://developer.hashicorp.com/terraform/language/functions/fileset)
+
+To find the files in a particular path I used:
+```
+fileset(path.module, "public/assets/*")
+```
+This isn't quite the same as used by Andrew, and I wanted to play around a little. I did use the path.module to show/start at the root of my filesystem.
+
+```
+fileset(path.module, "public/assets/*.{jpg,gif,png}")
+```
+allows us to find files that end in jpg, gif, and png.
+
+now we'll put those filenames in a list, using [TF List](https://developer.hashicorp.com/terraform/language/functions/list)

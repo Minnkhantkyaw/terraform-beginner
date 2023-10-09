@@ -27,6 +27,23 @@ resource "aws_s3_bucket_website_configuration" "s3website" {
 # uploade a file to the s3 bucket
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
 
+# upload the files to the s3 bucket, using a list of file names and for_each
+
+resource "aws_s3_object" "upload_files" {
+ for_each = fileset("${path.root}/public/assets","*.{jpg,gif,png}")
+  bucket = var.s3_bucket_name
+  key    = "/assets/${each.key}"
+  source = "${path.root}/pubic/assets/${each.key}"
+  #content_type = "text/html"
+
+  etag = filemd5("${path.root}/pubic/assets/${each.key}")
+  
+  lifecycle {
+    replace_triggered_by = [terraform_data.content_version.output]
+    ignore_changes = [ etag ]
+  }
+}
+
  resource "aws_s3_object" "index" {
   bucket = var.s3_bucket_name
   key    = "index.html"
@@ -39,8 +56,7 @@ resource "aws_s3_bucket_website_configuration" "s3website" {
     replace_triggered_by = [terraform_data.content_version.output]
     ignore_changes = [ etag ]
   }
- 
-}
+ }
 
  resource "aws_s3_object" "error" {
   bucket = var.s3_bucket_name
@@ -54,8 +70,8 @@ resource "aws_s3_bucket_website_configuration" "s3website" {
   #   replace_triggered_by = [terraform_data.content_version.output]
   #   ignore_changes = [ etag ]
   # }
- 
- }
+  }
+
 
 
 # Bucket policy
