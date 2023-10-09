@@ -33,3 +33,8 @@ variable "error_html_path" {
     error_message = "The specified path does not exist."
   }
 }
+
+variable "assets_path" {
+  type        = string
+  description = "Path to the assets folder"
+}

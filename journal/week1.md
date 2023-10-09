@@ -611,3 +611,79 @@ I've noticed that both my files will be changed/updated.  I'm sure it is b/c I h
 
 Run the apply.  See that there are changes to be applied, and what they are.
 My invalidation is working.  
+
+## Assets Upload and For Each
+
+First, I'll upload two pics for my index.html file.  A logo for my baseball team, now in the post-season, and a pic of my tiny house on wheels b/c that's what I live in and I hope to base my house on for terratowns. 
+
+With those uploaded, we'll install a simple http server, found here [Simple NPM http server](https://www.npmjs.com/package/http-server) and add it to the gitpod.yml file to install each time we boot up our env.
+
+I've uploaded and put image links into my index.html page. 
+I'm going to push up my work so far and go to bed.
+Stopped at 7:52 in video Assets Upload and For Each
+
+- 10/09/23
+
+We'll use TF console to help us figure out how to get a list of file from the /public/assets folder and iterate through them to upload them to the s3 bucket.
+
+[TF for_each](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
+
+- I corrected the issue of needing to copy the .tfvars file manually each time, before I could run ``` tf init ```.  Now I need to find a way to delay a resource so that I don't have to run TF apply a second time to get my index/error files uploaded.
+
+When I asked ChatGPT for "I want to upload a list of files to an s3 bucket, using terraform for_each, please give me an example", I got this example:
+
+```t
+variable "s3_bucket_name" {
+  description = "Name of the S3 bucket"
+  type        = string
+}
+
+variable "files_to_upload" {
+  description = "List of files to upload to the S3 bucket"
+  type        = list(string)
+}
+
+resource "aws_s3_bucket" "example" {
+  bucket = var.s3_bucket_name
+  acl    = "private" # You can set the ACL as needed
+}
+
+resource "aws_s3_bucket_object" "file_upload" {
+  for_each = { for idx, file in var.files_to_upload : idx => file }
+
+  bucket       = aws_s3_bucket.example.id
+  key          = each.key
+  source       = each.value
+  content_type = "application/octet-stream" # Set the appropriate content type
+}
+```
+
+We'll try a few things using [TF Console](https://developer.hashicorp.com/terraform/cli/commands/console)
+
+``` 
+tf console
+```
+
+[TF Fileset function](https://developer.hashicorp.com/terraform/language/functions/fileset)
+
+To find the files in a particular path I used:
+```
+fileset(path.module, "public/assets/*")
+```
+This isn't quite the same as used by Andrew, and I wanted to play around a little. I did use the path.module to show/start at the root of my filesystem.
+
+```
+fileset(path.module, "public/assets/*.{jpg,gif,png}")
+```
+allows us to find files that end in jpg, gif, and png.
+
+now we'll put those filenames in a list, using [TF List](https://developer.hashicorp.com/terraform/language/functions/list)
+
+I could NOT figure out why I couldn't see my images once I had moved them from their public folder into an assets folder!  I was giving it too many paths to follow. I just needed to reference the one folder up from where the file actually lived. That drove me batty for most of this afternoon! 
+I finally got my files to upload to the assets folder, and can see the images from the webserver and the CDN.
+
+Fumbled through the for_each as well. I may try to do this lesson again. 
+
+I went ahead and watched the rest of the video where a variable was created for the assets_file_path.  Once I got that in place, I was able to get pass the issues I was having with my image/asset/uploads not working correctly.
+
+Do make sure to do a ``` tf destory --auto-approve ``` before you end your environment.
