@@ -14,3 +14,8 @@ output "s3bucket_website" {
   description = "the value of the website/url that is produced for the s3 bucket."
   value       = module.terrahouse_aws.s3bucket_website
 }
+
+output "cloudfront_url" {
+  description = "The URL for the CloudFront distribution"
+  value       = module.terrahouse_aws.cloudfront_url
+}

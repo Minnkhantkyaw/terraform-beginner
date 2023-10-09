@@ -12,3 +12,7 @@ output "s3bucket_website" {
   description = "the value of the website/url that is produced for the s3 bucket."
   value       = aws_s3_bucket_website_configuration.s3website.website_endpoint
 }
+
+output "cloudfront_url" {
+  value = aws_cloudfront_distribution.s3_distribution.domain_name
+}

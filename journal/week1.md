@@ -552,3 +552,62 @@ TF does see the changes and will apply them,
 
 but this does not fix the invalidation issue we were having before.
 
+## Invalidate Cache and Local Exec
+
+###### My Texas Rangers Won today! The broadcast team on Fox/FS1 was horrible and not impartial at all!! 
+
+I am house/cat sitting while trying to complete my work. I didn't know that I am very allergic to ragweed, which has blown in, in the city I'm house sitting. I don't know how those of you who suffer with several allergies like this work through your day. I'm worn out, tried/sleepy from the medincine I have to take to make my nose quit running and my eyes not cry.
+
+We'll ask ChatGPT how to invalidate files in a CloudFront distribution using a null_resource. (Using terraform_data is an more updated way.)
+
+Here's what it found:
+```
+resource "null_resource" "cloudfront_invalidation" {
+  triggers = {
+    distribution_id = aws_cloudfront_distribution.example.id
+  }
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      aws cloudfront create-invalidation \
+        --distribution-id "${self.triggers.distribution_id}" \
+        --paths "/*"
+    EOT
+  }
+
+  depends_on = [aws_cloudfront_distribution.example]
+}
+
+```
+[Terraform null resource](https://developer.hashicorp.com/terraform/language/resources/provisioners/null_resource)
+
+We'll use the local-exec funtion to run an AWS CLI command line to execute the file invalidation.
+
+[More info on AWS CFront Invalidation as a cmd line](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)
+
+```
+aws cloudfront create-invalidation --distribution-id distribution_ID --paths "/*"
+```
+
+We'll put this code in so that we can invalidate files that need to be changed/updated and that they'll actually show the correct version we intend. 
+
+Make sure to copy the variables to the .tfvars file and perform a 
+```
+tf init
+```
+to see if we have any errors. 
+My set up will probably make me run tf apply twice b/c the bucket never seems to be in place when I need to upload the files.
+
+A new output variable has been made to make it easier for us to get the CF Distribution, instead of having to into the console to get it.
+```t
+output "cloudfront_url" {
+  
+}
+```
+
+I've updated my index.html file with a small update, updated the content_version in the .tfvars file, and ran an apply.
+
+I've noticed that both my files will be changed/updated.  I'm sure it is b/c I have the invalidation code in both files.  I may take it out of the error file resource.
+
+Run the apply.  See that there are changes to be applied, and what they are.
+My invalidation is working.  

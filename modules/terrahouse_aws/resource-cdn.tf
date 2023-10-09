@@ -64,3 +64,18 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     cloudfront_default_certificate = true
   }
 }
+
+# # This code will invalidate old version of the index/error html files
+# when they are updated/changed. 
+
+resource "terraform_data" "invalidate_cache" {
+  triggers_replace = terraform_data.content_version.output
+
+  provisioner "local-exec" {
+    command = <<-EOF
+    aws cloudfront create-invalidation \
+    --distribution-id ${aws_cloudfront_distribution.s3_distribution.id} \
+    --paths "/*"
+      EOF
+    }
+}
