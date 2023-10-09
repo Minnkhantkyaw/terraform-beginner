@@ -50,10 +50,10 @@ resource "aws_s3_bucket_website_configuration" "s3website" {
 
   etag = filemd5(var.error_html_path)
   
-  lifecycle {
-    replace_triggered_by = [terraform_data.content_version.output]
-    ignore_changes = [ etag ]
-  }
+  # lifecycle {
+  #   replace_triggered_by = [terraform_data.content_version.output]
+  #   ignore_changes = [ etag ]
+  # }
  
  }
 
