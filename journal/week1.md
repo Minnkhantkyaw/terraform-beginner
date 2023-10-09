@@ -611,3 +611,13 @@ I've noticed that both my files will be changed/updated.  I'm sure it is b/c I h
 
 Run the apply.  See that there are changes to be applied, and what they are.
 My invalidation is working.  
+
+## Assets Upload and For Each
+
+First, I'll upload two pics for my index.html file.  A logo for my baseball team, now in the post-season, and a pic of my tiny house on wheels b/c that's what I live in and I hope to base my house on for terratowns. 
+
+With those uploaded, we'll install a simple http server, found here [Simple NPM http server](https://www.npmjs.com/package/http-server) and add it to the gitpod.yml file to install each time we boot up our env.
+
+I've uploaded and put image links into my index.html page. 
+I'm going to push up my work so far and go to bed.
+stopped at 7:52 in video Assets Upload and For Each
