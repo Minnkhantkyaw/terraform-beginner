@@ -687,3 +687,10 @@ Fumbled through the for_each as well. I may try to do this lesson again.
 I went ahead and watched the rest of the video where a variable was created for the assets_file_path.  Once I got that in place, I was able to get pass the issues I was having with my image/asset/uploads not working correctly.
 
 Do make sure to do a ``` tf destory --auto-approve ``` before you end your environment.
+
+I have finally reached the point that I can submit my homework for week 1.
+
+An issue I found and resolved from looking at the Discord channels...
+[issue with week1 validator](https://discord.com/channels/1138488133558730883/1159893246391091211)
+
+Now I'm going to go back and see if I can make a new branch and get it updated and merged.
