@@ -99,3 +99,26 @@ chmod u+x *
 ![Alt text](/images/bin-tt-chmod.png)
 
 Once done, stop the current evn and restart it; check to make sure that all is working well. 
+
+All seems to be good with the changes in env that have been implemented
+- sinatra
+![Alt text](/images/sinatra-server.png)
+
+### [Sinatra](https://sinatrarb.com/)
+Sinatra is a DSL for quickly creating web applications in Ruby with minimal effort.
+
+Sinatra is a micro web-framework for ruby to build web-apps.
+
+Its great for mock or development servers or for very simple projects.
+
+You can create a web-server in a single file.
+
+### [Bundler](https://bundler.io/guides/sinatra.html)
+
+ Sinatra uses Blunder to install packages, like node uses npm.
+
+ #### Terratown Mock Server
+ Using Sinatra/Bundler and exectuing the files @ 21:41 in video Terratowns Mock Web Server
+
+ The Rangers game is about to start and we're going to kill the Orioles and advance to the ALCS. 
+
