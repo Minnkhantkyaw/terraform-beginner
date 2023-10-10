@@ -84,3 +84,18 @@ Now, we'll take the contents of the gitpod.yml file at the level and move it int
       bundle exec ruby server.rb
 ```
 Commit the work/files done so far so we don't lose anything.
+
+Next we'll move the exectuables from the terratown/bin directory to our main bin directory.  This way the .exec are all in the same general folder.
+
+Make sure that those files are executable as well.  Use 
+```bash
+chmod 
+```
+to make the changes.
+```bash
+cd bin/terratowns
+chmod u+x *
+```
+![Alt text](/images/bin-tt-chmod.png)
+
+Once done, stop the current evn and restart it; check to make sure that all is working well. 
