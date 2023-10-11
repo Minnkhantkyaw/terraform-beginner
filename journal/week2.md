@@ -122,3 +122,28 @@ You can create a web-server in a single file.
 
  The Rangers game is about to start and we're going to kill the Orioles and advance to the ALCS. 
 
+ 10/11/23
+ I sped throug the rest of this video to see what it entailed and it confuses me.  I'm not exactly sure
+ what we are doing or why. I will go back to my last stopping point and go back over
+ the material. 
+
+ In our file ``` server.rb ```
+ We are going to make our server behave like a database; it'll keep the state
+ of our global variable with this server.
+
+  ActiveModel is part of Ruby on Rails.
+  it is used as an ORM. It has a module within
+  ActiveModel that provides validations.
+  The production Terratowns server is rails and uses
+  very similar and in most cases identical validation
+  https://guides.rubyonrails.org/active_model_basics.html
+  https://guides.rubyonrails.org/active_record_validations.html
+
+  create some virtual attributes to stored on this object
+  This will set a getter and setter
+  eg. 
+  home = new Home()
+  home.town = 'hello' # setter
+  home.town() # getter
+
+https://terratowns.cloud/
