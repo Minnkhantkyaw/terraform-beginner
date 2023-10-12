@@ -147,3 +147,45 @@ You can create a web-server in a single file.
   home.town() # getter
 
 https://terratowns.cloud/
+
+With the changes made to the server.rb file we'll need to stop and restart the server.
+
+```sh
+Crtl-c 
+bundle exec ruby server.rb
+```
+![Alt text](/images/RestartingSinatra.png)
+
+Then we'll run the create script:
+```bash
+./bin/terratowns/create
+```
+and we'll get this as a positive/no-error result:
+
+![Alt text](/images/tt-create.png)
+
+create returns a uuid 
+and in the Sinatra window for the server:
+
+![Alt text](/images/Sinatra-Create-Result.png)
+
+Next, we'll try a read of the Terratown database; make sure to give it a UUID as an input.
+
+```bash
+./bin/terratowns/read aef90082-9824-4d1a-9359-2f1fb12148ef
+```
+
+![Read Terratowns](/images/Sinatra-Read.png)
+
+Now update:
+
+```bash 
+./bin/terratowns/update <uuid>
+```
+![Alt text](/images/Sinatra-Update-TT.png)
+
+and delete the house
+```bash
+./bin/terratowns/delete <uuid>
+```
+![Alt text](/images/Sinatra-Delete-TT.png)
