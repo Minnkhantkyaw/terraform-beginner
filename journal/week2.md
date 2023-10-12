@@ -189,3 +189,69 @@ and delete the house
 ./bin/terratowns/delete <uuid>
 ```
 ![Alt text](/images/Sinatra-Delete-TT.png)
+
+## Setup Skeleton For Custom Terraform Provider
+Working through this video. I though I had to be moved back to TF cloud.  I tried to get myself prepped
+for that but messed something up.  I had enabled that code, but then took it out/commented it out.  
+I tried to run TF local again but was getting an error...  I went ahead and renamed the .tfstate file
+and it allowed me to run tf locallly again.
+On to the next segment.
+
+This task is to create a custom TF provider for our project.  It'll be built in *Go*.
+
+We'll create a new folder and a new file under that folder create a new file for the Go program, named ``` main.go ```
+
+```bash 
+mkdir terraform-provider-terratowns 
+cd terraform-provider-terratowns 
+touch main.go
+```
+
+I copied the file from Andrew's repo and will walk through the video as it goes along.  I'm not sure I fully understand and I'm not familiar with Go.
+
+Once we get a good amount of code in the file (I didn't write a bit of Go code, it belong to Andrew!!) we'll find a way to compile the code.
+
+A ``` .terrafromrc ``` file will be needed in this process. 
+
+```bash
+touch .terraformrc
+```
+and copied the contents of Andrew's file.
+
+
+Also need to create this file ``` build_provider.sh```
+
+```bash
+cd /bin
+touch build_provider.sh
+```
+and copied the contents of Andrew's file.
+
+When trying to complie the go file, we'll run into some issues.  We'll need a ``` go.mod ``` file.
+
+```bash
+cd terraform-provider-terratowns
+touch go.mod
+```
+Commands I ran to get my Go program to compile.
+![Alt text](/images/BuildingGo.png)
+
+But I am not seeing the complied file...
+
+Found my error.  I had an ``` / ``` in the cmd to compile where it wasn't needed.  Now I am seeing the same results as in the video.
+
+```bash 
+ go build -o terraform-provider-terratowns_v1.0.0
+```
+I removed the folder it created. 
+
+Added some new files to my .gitignore.
+
+```yml
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+terraform-provider-terratowns/terraform-provider-terratowns_v*
+```
+
