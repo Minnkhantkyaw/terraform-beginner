@@ -255,3 +255,25 @@ terraform.rc
 terraform-provider-terratowns/terraform-provider-terratowns_v*
 ```
 
+## Provider Block for Custom Terraform Provider
+
+First let's see if the bash script we wrote in the last lesson works..
+Do make sure you chmod on the file to make it executable. 
+
+```bash
+./bin/build_provider.sh
+```
+All seems well.  
+Go check this folder to see if you have results...
+
+```bash
+ls /home/gitpod/.terraform.d/plugins/local.providers/local
+```
+
+and you should have something listed in your folder...
+
+![Alt text](/images/TFProvderCustom.png)
+
+I followed along w/ the video and I solved any issues I was having and cleared errors I was getting with tf init, and plan.  Mostly I commented out code.
+
+I'm still unsure of what I've done or what was achieved in this video, but I'm caught up to the end of this video and will merge what I have.
