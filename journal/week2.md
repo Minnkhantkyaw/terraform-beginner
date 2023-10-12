@@ -277,3 +277,5 @@ and you should have something listed in your folder...
 I followed along w/ the video and I solved any issues I was having and cleared errors I was getting with tf init, and plan.  Mostly I commented out code.
 
 I'm still unsure of what I've done or what was achieved in this video, but I'm caught up to the end of this video and will merge what I have.
+
+## Next Video
