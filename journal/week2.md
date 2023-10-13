@@ -254,3 +254,29 @@ terraform.rc
 
 terraform-provider-terratowns/terraform-provider-terratowns_v*
 ```
+
+## Resource Skeleton
+
+I had a merge conflict in my last branch.  I reached out to the discord channel and got a suggestion 
+from @bayko!  I wasnt' really sure what I needed to do.  I took a chance to follow some instrcutions that
+GitHub suggested, made my edits and was able to get my branch merged up.  I made a new one for the next
+video (57-resource-skeleton) and all seems to be working well for the time being.
+
+I am on the correct branch and I will be pushing my work up more frequently.
+I hope I remember this when I have to do this in the real world... 
+These were the steps I followed after I read up on @Bayko's advice.
+
+![Alt text](/images/GitMergeConflictInstructions.png)
+
+I was able to run the ``` build_provider.sh ``` script and to ru ``` tf init ``` and ``` tf plan ```
+
+On the the Resource Skeleton video!!!
+
+We'll open the ``` main.go ``` file.
+
+Following along.  I think I have all of this code from a previous branch.
+I'm not having to update anything at this time.
+
+### CRUD
+
+https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
