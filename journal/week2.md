@@ -254,4 +254,3 @@ terraform.rc
 
 terraform-provider-terratowns/terraform-provider-terratowns_v*
 ```
-
