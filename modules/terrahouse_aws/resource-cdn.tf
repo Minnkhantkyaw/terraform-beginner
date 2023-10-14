@@ -6,8 +6,8 @@ locals {
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_origin_access_control
 resource "aws_cloudfront_origin_access_control" "default" {
-  name                              = "OAC for ${var.s3_bucket_name}"
-  description                       = "Origin Access Control for S3 Static Website for ${var.s3_bucket_name}."
+  name                              = "OAC for ${aws_s3_bucket.example.id}"
+  description                       = "Origin Access Control for S3 Static Website for ${aws_s3_bucket.example.id}."
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
@@ -22,7 +22,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "Static Website from S3 bucket ${var.s3_bucket_name}"
+  comment             = "Static Website from S3 bucket ${aws_s3_bucket.example.id}"
   default_root_object = "index.html"
 
   # aliases = ["mysite.example.com", "yoursite.example.com"]

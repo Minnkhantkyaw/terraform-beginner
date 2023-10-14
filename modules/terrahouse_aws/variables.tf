@@ -9,10 +9,10 @@ variable "UUID" {
   }
 }
 
-variable "s3_bucket_name" {
-  type    = string
-  #default = "m2g094yvm028oas0"
-}
+# variable "s3_bucket_name" {
+#   type    = string
+#   #default = "m2g094yvm028oas0"
+# }
 
 variable "index_html_path" {
   type        = string

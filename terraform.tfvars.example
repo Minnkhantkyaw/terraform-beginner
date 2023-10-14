@@ -1,6 +1,8 @@
 UUID = "0071972e-6023-468b-9eab-4f109beb9e81"
-s3_bucket_name="m2g094yvm028oas0"
+#s3_bucket_name="m2g094yvm028oas0"
 index_html_path="/workspace/terraform-beginner-bootcamp-2023/public/index.html"
 error_html_path="/workspace/terraform-beginner-bootcamp-2023/public/error.html"
 content_version = 1
 assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets/"
+teacherseat_user_uuid = "0071972e-6023-468b-9eab-4f109beb9e81"
+terratowns_endpoint = "https://terratowns.cloud/api"
