@@ -366,3 +366,17 @@ tf apply --auto-approve
 ```
 but my files are not showing up as they should.  I think I found the issue.
 My index.html files had a path that may have been incorrect. 
+
+It was my index.html file that was incorrect.  I have it fixed, my images are showing up,
+and when I change the text and update the content version I get a change.
+
+I can delete the first house (Morton Manor Tiny House) and it will recreate!
+
+Now I will try to add a second house!
+
+I had to correct a variable in the new house...
+
+and I had to run ``` tf init ``` again.
+
+My plan is good, no errors and 10 resources to create.
+

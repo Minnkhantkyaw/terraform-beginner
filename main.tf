@@ -35,35 +35,29 @@ tools and clothes. I want to build a pull-out couch to allow me to sleep downsta
 during the hotter part of the year. I also want space for a Labrador. I miss having a dog!
 DESCRIPTION
   domain_name = module.morton_manor.domain_name
-  #domain_name = "3fdq3gz23.cloudfront.net"
   town            = "the-nomad-pad"
   content_version = var.morton_manor.content_version
 }
 
 
 # Columbia Cottage Tiny House
+module "columbia_cottage" {
+  source = "./modules/terrahome_aws"
+  # pass in any vars you need
+  UUID = var.teacherseat_user_uuid
+  public_path = var.columbia_cottage.public_path
+  content_version = var.columbia_cottage.content_version
+}
 
-# module "columbia_cottage" {
-#   source = "./modules/terrahome_aws"
-#   # pass in any vars you need
-#   UUID = var.teacherseat_user_uuid
-#   # s3_bucket_name  = aws_s3_bucket.example.id
-#   public_path = var.columbia_cottage_public_path
-#   # index_html_path = var.index_html_path
-#   # error_html_path = var.error_html_path
-#   # assets_path     = var.assets_path
-    # content_version = var.columbia_cottage.content_version
-# }
-
-# resource "terratowns_home" "cottage" {
-#   name        = "Columbia Cottage"
-#   description = <<DESCRIPTION
-# This is a 2nd, ficitional, tiny house on wheels.  It would be built on a goose-neck trailer and 
-# would only be 9-10 feet tall but on a least a 20ft trailer. It would be more movable than Morton Manor.
-# I may also consider to be put on a 16ft trail
-# DESCRIPTION
-#   domain_name = module.columbia_cottage.domain_name
-#   #domain_name = "3fdq3gz23.cloudfront.net"
-#   town            = "the-nomad-pad"
-#   content_version = var.columbia_cottage.content_version
-# }
+resource "terratowns_home" "columbia_cottage" {
+  name        = "Columbia Cottage Tiny House"
+  description = <<DESCRIPTION
+This is a 2nd, ficitional, tiny house on wheels. It would be built on a goose-neck trailer and 
+would only be 9-10 feet tall but on a least a 20ft trailer. It would be more movable than Morton Manor.
+I may also consider to be put on a 16ft trailer.  The bedroom would be on the gooseneck part of the 
+trailer. 
+DESCRIPTION
+  domain_name = module.columbia_cottage.domain_name
+  town            = "the-nomad-pad"
+  content_version = var.columbia_cottage.content_version
+}
