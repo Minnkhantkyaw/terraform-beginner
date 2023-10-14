@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "example" {
-  bucket = var.s3_bucket_name
+  # #We want to force a random bucket name by commenting out the line below.
+  #bucket = var.s3_bucket_name
 
   tags = {
     UUID = var.UUID
@@ -31,7 +32,7 @@ resource "aws_s3_bucket_website_configuration" "s3website" {
 
 resource "aws_s3_object" "upload_files" {
  for_each = fileset(var.assets_path,"*.{jpg,gif,png}")
-  bucket = var.s3_bucket_name
+  bucket = aws_s3_bucket.example.id
   key    = "assets/${each.key}"
   source = "${var.assets_path}/${each.key}"
   #content_type = "text/html"
@@ -45,7 +46,7 @@ resource "aws_s3_object" "upload_files" {
 }
 
  resource "aws_s3_object" "index" {
-  bucket = var.s3_bucket_name
+  bucket = aws_s3_bucket.example.id
   key    = "index.html"
   source = var.index_html_path
   content_type = "text/html"
@@ -59,7 +60,7 @@ resource "aws_s3_object" "upload_files" {
  }
 
  resource "aws_s3_object" "error" {
-  bucket = var.s3_bucket_name
+  bucket = aws_s3_bucket.example.id
   key    = "error.html"
   source = var.error_html_path
   content_type = "text/html"
