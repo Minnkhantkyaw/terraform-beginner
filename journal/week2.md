@@ -280,3 +280,10 @@ I'm not having to update anything at this time.
 ### CRUD
 
 https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+
+
+## Implementing CRUD
+
+More following along b/c I don't know Go.
+
+I got the same results as the video.  I can create, update and delete a house.
