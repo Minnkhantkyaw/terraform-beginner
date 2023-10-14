@@ -324,3 +324,9 @@ I am now able to see my house in missingo in terratowns.cloud. :astonished:
 Now to destroy the house.  That completed successfully!!
 
 Update the code with our real info:
+
+Followed the video and I am getting my bucket created, the CloudFront distribution working;
+it took about 8-9 minutes and I thought that I had some infinite loop that I didn't know
+how to get out of! 
+
+Now I'm destorying the house and I'll make some adjustments to the house/name/town I want it to be in.
