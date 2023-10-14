@@ -25,3 +25,14 @@ provider "terratowns" {
   user_uuid = "e328f4ab-b99f-421c-84c9-4ccea042c7d1"
   token     = "9b49b3fb-b8e9-483c-b703-97ba88eef8e0"
 }
+
+resource "terratowns_home" "morton_manor" {
+  name = "How to play A in 2023"
+  description = <<DOC
+This is a better description on how to play A in the year 2023.
+  DOC
+  town = "missingo"
+  content_version = 1
+  #domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = "3e8u1j4b.cloudfront.net"
+}
