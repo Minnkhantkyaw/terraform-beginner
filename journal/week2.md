@@ -287,3 +287,40 @@ https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 More following along b/c I don't know Go.
 
 I got the same results as the video.  I can create, update and delete a house.
+
+## Deploying to Terratowns
+
+I'm ready to try to deploy to TerraTowns. :smile:
+
+I signed up with the TerraTowns.cloud site and I have my info.  I'll up date my ``` main.tf ``` with that info.  I'll not show it here due to wanting to keep that info safe.
+
+I built my provider, I ran 
+```bash
+tf init
+tf plan
+tf apply --auto-approve
+```
+
+Ran into some errors.  I made sure that my code was correct, but the fix was that I needed to change my domain to something different and my endpoint was misspelled.  
+
+```t
+resource "terratowns_home" "home" {
+  name = "How to play Arcanum in 2023! - SM"
+  description = <<DESCRIPTION
+Arcanum is a game from 2001 that shipped with alot of bugs.
+Modders have removed all the originals making this game really fun
+to play (despite that old look graphics). This is my guide that will
+show you how to play arcanum without spoiling the plot.
+DESCRIPTION
+  #domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = "3fdq3gz23.cloudfront.net"
+  town = "missingo"
+  content_version = 1
+}
+```
+
+I am now able to see my house in missingo in terratowns.cloud. :astonished:
+
+Now to destroy the house.  That completed successfully!!
+
+Update the code with our real info:
