@@ -330,3 +330,12 @@ it took about 8-9 minutes and I thought that I had some infinite loop that I did
 how to get out of! 
 
 Now I'm destorying the house and I'll make some adjustments to the house/name/town I want it to be in.
+
+
+## Terraform Cloud and Multi Home Refactor
+
+I've updated my ``` gitpod.yml ``` to run the build_provider script each time a new env starts up.
+
+Also, we have moved back to TF Cloud and made a settings change that will allow us to execute the commands
+locally and make them faster.
+Not sure that is working for me as my deploy is taking about 8-9 minutes.
