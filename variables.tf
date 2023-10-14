@@ -35,3 +35,27 @@ variable "assets_path" {
   type        = string
   description = "Path to the assets folder"
 }
+
+variable "morton_manor" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
+}
+
+variable "columbia_cottage" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
+}
+
+variable "mortonmanor_public_path" {
+  type        = string
+  description = "Path to the Morton Manor assets folder"
+}
+
+variable "columbiacottage_public_path" {
+  type        = string
+  description = "Path to the Columbia Cottage assets folder"
+}

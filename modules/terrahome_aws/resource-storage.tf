@@ -30,50 +30,44 @@ resource "aws_s3_bucket_website_configuration" "s3website" {
 
 # upload the files to the s3 bucket, using a list of file names and for_each
 
-resource "aws_s3_object" "upload_files" {
- for_each = fileset(var.assets_path,"*.{jpg,gif,png}")
-  bucket = aws_s3_bucket.example.id
+resource "aws_s3_object" "upload_assets" {
+  for_each = fileset("${var.public_path}/assets","*.{jpg,png,gif}")
+  bucket = aws_s3_bucket.website_bucket.bucket
   key    = "assets/${each.key}"
-  source = "${var.assets_path}/${each.key}"
-  #content_type = "text/html"
+  source = "${var.public_path}/assets/${each.key}"
 
-  etag = filemd5("${var.assets_path}${each.key}")
-  
+  etag = filemd5("${var.public_path}/assets/${each.key}")
   lifecycle {
     replace_triggered_by = [terraform_data.content_version.output]
-    ignore_changes = [ etag ]
+    ignore_changes = [etag]
   }
 }
 
  resource "aws_s3_object" "index" {
   bucket = aws_s3_bucket.example.id
   key    = "index.html"
-  source = var.index_html_path
+  source = "${var.public_path}/index.html"
   content_type = "text/html"
 
-  etag = filemd5(var.index_html_path)
-  
+  etag = filemd5("${var.public_path}/index.html")
   lifecycle {
     replace_triggered_by = [terraform_data.content_version.output]
-    ignore_changes = [ etag ]
+    ignore_changes = [etag]
   }
- }
+}
 
  resource "aws_s3_object" "error" {
   bucket = aws_s3_bucket.example.id
   key    = "error.html"
-  source = var.error_html_path
+  source = "${var.public_path}/error.html"
   content_type = "text/html"
 
-  etag = filemd5(var.error_html_path)
-  
-  # lifecycle {
-  #   replace_triggered_by = [terraform_data.content_version.output]
-  #   ignore_changes = [ etag ]
-  # }
+  etag = filemd5("${var.public_path}/error.html")
+  lifecycle {
+    replace_triggered_by = [terraform_data.content_version.output]
+    ignore_changes = [etag]
   }
-
-
+}
 
 # Bucket policy
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy

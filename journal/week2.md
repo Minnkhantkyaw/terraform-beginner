@@ -334,8 +334,26 @@ Now I'm destorying the house and I'll make some adjustments to the house/name/to
 
 ## Terraform Cloud and Multi Home Refactor
 
-I've updated my ``` gitpod.yml ``` to run the build_provider script each time a new env starts up.
+Made changes to my code to work in TF Cloud again.  You can make this change for all your projects in your TF Cloud account or you can set them for a particular project/workspace. That is the option I have choosen, per the video.
 
-Also, we have moved back to TF Cloud and made a settings change that will allow us to execute the commands
-locally and make them faster.
+I've updated my ``` gitpod.yml ``` to run the build_provider script each time a new env starts up.
+This allow me to skip that step in my set up each time.
+
+
 Not sure that is working for me as my deploy is taking about 8-9 minutes.
+it is working, just take a bit of time for it to complete. :smile:
+
+I'm making two houses.  One is for my own, existing Tiny House on Wheels, named [Morton Manor Tiny House on Wheels](http://www.mortonmanor.net/)
+And the other is for another fictional tiny house that I'd love to build, named Columbia Cottage.
+
+We'll need to refactor a few things.
+
+You can use the module again, it just needs to be called something different.
+Call the "house" module, but give it a different name.
+Like using a cookie cutter; you use the tool (module) to cut the cookie out the sugar cookie dough (morton manor),
+then you use the tool (module) cut another cookie from a shortbread dough (columbia cottage). 
+Same tool, different cookies. 
+Now to give those module the info it needs to build those different houses. 
+
+MortonManor->house
+ColumbiaCottage->house
