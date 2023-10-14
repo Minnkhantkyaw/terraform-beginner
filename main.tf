@@ -21,15 +21,11 @@ module "morton_manor" {
   source = "./modules/terrahome_aws"
   # pass in any vars you need
   UUID = var.teacherseat_user_uuid
-  # s3_bucket_name  = aws_s3_bucket.example.id
-  public_path = var.mortonmanor_public_path
-  # index_html_path = var.index_html_path
-  # error_html_path = var.error_html_path
-  # assets_path     = var.assets_path
-  content_version = var.content_version
+  public_path = var.morton_manor.public_path
+  content_version = var.morton_manor.content_version
 }
 
-resource "terratowns_home" "home" {
+resource "terratowns_home" "morton_manor" {
   name        = "Morton Manor Tiny House"
   description = <<DESCRIPTION
 My Tiny House has 264 sq ft, on a 24 ft flatbed trailers.  I moved it from TX to OR
@@ -52,7 +48,7 @@ DESCRIPTION
 #   # pass in any vars you need
 #   UUID = var.teacherseat_user_uuid
 #   # s3_bucket_name  = aws_s3_bucket.example.id
-#   public_path = var.columbiacottage_public_path
+#   public_path = var.columbia_cottage_public_path
 #   # index_html_path = var.index_html_path
 #   # error_html_path = var.error_html_path
 #   # assets_path     = var.assets_path

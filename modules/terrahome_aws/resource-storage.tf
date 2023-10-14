@@ -32,7 +32,7 @@ resource "aws_s3_bucket_website_configuration" "s3website" {
 
 resource "aws_s3_object" "upload_assets" {
   for_each = fileset("${var.public_path}/assets","*.{jpg,png,gif}")
-  bucket = aws_s3_bucket.website_bucket.bucket
+  bucket = aws_s3_bucket.example.bucket
   key    = "assets/${each.key}"
   source = "${var.public_path}/assets/${each.key}"
 

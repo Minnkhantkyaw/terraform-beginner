@@ -50,12 +50,12 @@ variable "columbia_cottage" {
   })
 }
 
-variable "mortonmanor_public_path" {
-  type        = string
-  description = "Path to the Morton Manor assets folder"
-}
+# variable "morton_manor_public_path" {
+#   type        = string
+#   description = "Path to the Morton Manor assets folder"
+# }
 
-variable "columbiacottage_public_path" {
-  type        = string
-  description = "Path to the Columbia Cottage assets folder"
-}
+# variable "columbia_cottage_public_path" {
+#   type        = string
+#   description = "Path to the Columbia Cottage assets folder"
+# }
