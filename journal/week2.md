@@ -357,3 +357,12 @@ Now to give those module the info it needs to build those different houses.
 
 MortonManor->house
 ColumbiaCottage->house
+
+Got all my names lined up and working. I can build the provider, I can 
+```t
+tf init
+tf plan 
+tf apply --auto-approve
+```
+but my files are not showing up as they should.  I think I found the issue.
+My index.html files had a path that may have been incorrect. 
