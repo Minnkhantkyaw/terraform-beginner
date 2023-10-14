@@ -28,16 +28,16 @@ module "morton_manor" {
 resource "terratowns_home" "morton_manor" {
   name        = "Morton Manor Tiny House"
   description = <<DESCRIPTION
-My Tiny House has 264 sq ft, on a 24 ft flatbed trailers.  I moved it from TX to OR
-about a year ago.  It has a functional bathroom (toilet and shower) though my water 
-heater is no malfunctioning!  I can cook and wash dishes, has storage for my belonging,
-and my clothes.  I want to build a fold out couch to allow me to sleep downstairs
-during the hotter part of the year.
+My Tiny House is 264 sq ft, on a 24 ft flatbed trailer. I moved it from TX to OR
+about a year ago. It has a functional bathroom (toilet and shower, sink coming) though my water 
+heater is malfunctioning! I can cook and wash dishes, has storage for my belongings,
+tools and clothes. I want to build a pull-out couch to allow me to sleep downstairs
+during the hotter part of the year. I also want space for a Labrador. I miss having a dog!
 DESCRIPTION
   domain_name = module.morton_manor.domain_name
   #domain_name = "3fdq3gz23.cloudfront.net"
   town            = "the-nomad-pad"
-  content_version = 1
+  content_version = var.morton_manor.content_version
 }
 
 
@@ -52,7 +52,7 @@ DESCRIPTION
 #   # index_html_path = var.index_html_path
 #   # error_html_path = var.error_html_path
 #   # assets_path     = var.assets_path
-#   # content_version = var.content_version
+    # content_version = var.columbia_cottage.content_version
 # }
 
 # resource "terratowns_home" "cottage" {
@@ -65,5 +65,5 @@ DESCRIPTION
 #   domain_name = module.columbia_cottage.domain_name
 #   #domain_name = "3fdq3gz23.cloudfront.net"
 #   town            = "the-nomad-pad"
-#   content_version = 1
+#   content_version = var.columbia_cottage.content_version
 # }

@@ -14,10 +14,6 @@ variable "teacherseat_user_uuid" {
   type = string
 }
 
-# variable "s3_bucket_name" {
-#   type = string
-# }
-
 variable "index_html_path" {
   type = string
 }
@@ -49,13 +45,3 @@ variable "columbia_cottage" {
     content_version = number
   })
 }
-
-# variable "morton_manor_public_path" {
-#   type        = string
-#   description = "Path to the Morton Manor assets folder"
-# }
-
-# variable "columbia_cottage_public_path" {
-#   type        = string
-#   description = "Path to the Columbia Cottage assets folder"
-# }
