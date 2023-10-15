@@ -330,3 +330,77 @@ it took about 8-9 minutes and I thought that I had some infinite loop that I did
 how to get out of! 
 
 Now I'm destorying the house and I'll make some adjustments to the house/name/town I want it to be in.
+
+
+## Terraform Cloud and Multi Home Refactor
+
+Made changes to my code to work in TF Cloud again.  You can make this change for all your projects in your TF Cloud account or you can set them for a particular project/workspace. That is the option I have choosen, per the video.
+
+I've updated my ``` gitpod.yml ``` to run the build_provider script each time a new env starts up.
+This allow me to skip that step in my set up each time.
+
+
+Not sure that is working for me as my deploy is taking about 8-9 minutes.
+it is working, just take a bit of time for it to complete. :smile:
+
+I'm making two houses.  One is for my own, existing Tiny House on Wheels, named [Morton Manor Tiny House on Wheels](http://www.mortonmanor.net/)
+And the other is for another fictional tiny house that I'd love to build, named Columbia Cottage.
+
+We'll need to refactor a few things.
+
+You can use the module again, it just needs to be called something different.
+Call the "house" module, but give it a different name.
+Like using a cookie cutter; you use the tool (module) to cut the cookie out the sugar cookie dough (morton manor),
+then you use the tool (module) cut another cookie from a shortbread dough (columbia cottage). 
+Same tool, different cookies. 
+Now to give those module the info it needs to build those different houses. 
+
+MortonManor->house
+ColumbiaCottage->house
+
+Got all my names lined up and working. I can build the provider, I can 
+```t
+tf init
+tf plan 
+tf apply --auto-approve
+```
+but my files are not showing up as they should.  I think I found the issue.
+My index.html files had a path that may have been incorrect. 
+
+It was my index.html file that was incorrect.  I have it fixed, my images are showing up,
+and when I change the text and update the content version I get a change.
+
+I can delete the first house (Morton Manor Tiny House) and it will recreate!
+
+Now I will try to add a second house!
+
+I had to correct a variable in the new house...
+
+and I had to run ``` tf init ``` again.
+
+My plan is good, no errors and 10 resources to create.
+
+I am not getting an assets folder uploaded to my 2nd bucket for my 2nd house
+(columbia cottage)  
+I *think* the issue is that the image file name had a .JPG as
+an extension.  I've renamed it .jpg (lowercase) to see if that will 
+work.
+
+After fixing the extension in the asset folder and ALSO in the html file...
+I'm going to re-run my tf apply... 
+Then I'll try the changing of the text, version number, and deleteing the house...
+
+So far, I'm in good shape.  My two houses have created, I can see the pictures for each.
+
+Now I'll try to delete one and see if it recreates.  It did before.
+Columbia Cottage has been removed,and TF did see that it needs to recreate it...
+
+It did recreate the Columbia Cottage.
+
+Now I'm changing some of the text for the page and updating the content version to 4.
+Before:
+![Alt text](/images/CC_BeforeTextChange.png)
+
+and the changes were noticed and updated.
+
+![Alt text](/images/CC_AfterTextChange.png)

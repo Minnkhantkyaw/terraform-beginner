@@ -1,12 +1,10 @@
 terraform {
-  # cloud {
-  #   organization = "TerraTowns"
-
-  #   workspaces {
-  #     name = "TerraHouse"
-  #   }
-
-  # }
+  cloud {
+    organization = "TerraTowns"
+      workspaces {
+        name = "TerraHouse"
+      }
+  }
 
   # required_providers {
   #   #   random = {

@@ -6,3 +6,12 @@ content_version = 1
 assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets/"
 teacherseat_user_uuid = "0071972e-6023-468b-9eab-4f109beb9e81"
 terratowns_endpoint = "https://terratowns.cloud/api"
+
+morton_manor = {
+  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/morton_manor"
+  content_version = 2 
+}
+columbia_cottage = {
+  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/columbia_cottage"
+  content_version = 1 
+}
