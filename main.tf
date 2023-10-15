@@ -52,10 +52,10 @@ module "columbia_cottage" {
 resource "terratowns_home" "columbia_cottage" {
   name        = "Columbia Cottage Tiny House"
   description = <<DESCRIPTION
-This is a 2nd, ficitional, tiny house on wheels. It would be built on a goose-neck trailer and 
-would only be 9-10 feet tall but on a least a 20ft trailer. It would be more movable than Morton Manor.
+I would build a 2nd time on a goose-neck trailer if I get the funds. It would only be 9-10 feet tall 
+but on a least a 20ft trailer. It would be more movable than Morton Manor.
 I may also consider to be put on a 16ft trailer.  The bedroom would be on the gooseneck part of the 
-trailer. 
+trailer. I could see having a 2nd bedroom/sleeping area/loft
 DESCRIPTION
   domain_name = module.columbia_cottage.domain_name
   town            = "the-nomad-pad"

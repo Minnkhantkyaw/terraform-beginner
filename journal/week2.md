@@ -385,3 +385,22 @@ I am not getting an assets folder uploaded to my 2nd bucket for my 2nd house
 I *think* the issue is that the image file name had a .JPG as
 an extension.  I've renamed it .jpg (lowercase) to see if that will 
 work.
+
+After fixing the extension in the asset folder and ALSO in the html file...
+I'm going to re-run my tf apply... 
+Then I'll try the changing of the text, version number, and deleteing the house...
+
+So far, I'm in good shape.  My two houses have created, I can see the pictures for each.
+
+Now I'll try to delete one and see if it recreates.  It did before.
+Columbia Cottage has been removed,and TF did see that it needs to recreate it...
+
+It did recreate the Columbia Cottage.
+
+Now I'm changing some of the text for the page and updating the content version to 4.
+Before:
+![Alt text](/images/CC_BeforeTextChange.png)
+
+and the changes were noticed and updated.
+
+![Alt text](/images/CC_AfterTextChange.png)
