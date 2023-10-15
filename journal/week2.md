@@ -380,3 +380,8 @@ and I had to run ``` tf init ``` again.
 
 My plan is good, no errors and 10 resources to create.
 
+I am not getting an assets folder uploaded to my 2nd bucket for my 2nd house
+(columbia cottage)  
+I *think* the issue is that the image file name had a .JPG as
+an extension.  I've renamed it .jpg (lowercase) to see if that will 
+work.
